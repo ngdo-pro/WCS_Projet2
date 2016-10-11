@@ -1,3 +1,7 @@
+book_editor_book:
+    resource: "@BookEditorBundle/Resources/config/routing/book.yml"
+    prefix:   /book
+
 book_editor_homepage:
     path:     /
     defaults: { _controller: BookEditorBundle:Default:index }
