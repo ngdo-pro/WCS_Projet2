@@ -1,13 +1,40 @@
 /* header */
 
+.navbar-default {
+    background: none;
+}
 
+.navbar-brand {
+    height:auto;
+}
 
+.navbar-brand>img {
+    height: 170px;
+    margin-left: 40px;
+    margin-bottom: 28px;
+}
 
+.navbar-default .navbar-nav > .active > a {
+    background-color: white;
+    border-bottom: 2px solid purple;
+}
 
+.navbar-nav > li > a {
+    font-size: 20px;
+    font-weight: bold;
+}
 
+.navbar-default:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 229px;
+    width: 100%;
+    background: url(../img/ville.jpg) 0 -20px no-repeat;
 
-
-
+    opacity: .10;
+    z-index: -1;
 
 /* footer */
 
