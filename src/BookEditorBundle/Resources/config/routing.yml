@@ -1,0 +1,3 @@
+book_editor_homepage:
+    path:     /
+    defaults: { _controller: BookEditorBundle:Default:index }
