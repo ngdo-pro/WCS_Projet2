@@ -24,6 +24,7 @@ class BookType extends AbstractType
             ->add('pressTitle')
             ->add('pressImageUrl', FileType::class, array('label' => 'Photo de l\'article de presse', 'data_class' => null))
             ->add('releaseDate', 'datetime')
+            ->add('purchaseOrderImageUrl', FileType::class, array('label' => 'Photo du bon de commande', 'data_class' => null))
         ;
     }
     
