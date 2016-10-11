@@ -3,51 +3,23 @@
 {% block body %}
     <h1>Book list</h1>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>Author</th>
-                <th>Description</th>
-                <th>Facebooklinkurl</th>
-                <th>Imageurl</th>
-                <th>Presstitle</th>
-                <th>Pressimageurl</th>
-                <th>Releasedate</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for book in books %}
-            <tr>
-                <td><a href="{{ path('book_show', { 'id': book.id }) }}">{{ book.id }}</a></td>
-                <td>{{ book.title }}</td>
-                <td>{{ book.author }}</td>
-                <td>{{ book.description }}</td>
-                <td>{{ book.facebookLinkUrl }}</td>
-                <td>{{ book.imageUrl }}</td>
-                <td>{{ book.pressTitle }}</td>
-                <td>{{ book.pressImageUrl }}</td>
-                <td>{% if book.releaseDate %}{{ book.releaseDate|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('book_show', { 'id': book.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('book_edit', { 'id': book.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('book_new') }}">Create a new entry</a>
-        </li>
-    </ul>
+        {% for book in books %}
+                <div class="container container_block_books">
+
+                    <div class="block_books vertical_center_block col-xs-12 col-sm-6 col-md-4">
+                        <div class="block_img center-block col-xs-6 col-sm-12 col-md-12">
+                            <img class="img_book" src="{{ book.image_url }}<" alt="{{ book.title }}">
+                        </div>
+
+                        <div class="block_text center-block col-xs-6 col-sm-12 col-md-12">
+                            <p class="text_intro">{{ book.description }}</p>
+                            <a class="btn_more" href=""> En savoir + </a>
+                        </div>
+                    </div>
+
+                </div>
+        {% endfor %}
+
+
 {% endblock %}

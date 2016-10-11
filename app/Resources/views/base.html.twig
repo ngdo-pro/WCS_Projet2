@@ -16,36 +16,8 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-        {% block body %}
+    {% block body %}{% endblock %}
 
-
-            <div class="container container_block_books">
-                <!--   -->
-                <?php
-
-      require  __DIR__.'/../class/Bdd.php';
-      $conn = new \rdm\Bdd();
-      $conn->execSql("select image_url, description, title from book order by release_date desc limit 9");
-
-                ?>
-
-                <?php while($book = $conn->getResult()->fetch_assoc()){ ?>
-
-                <div class="block_books vertical_center_block col-xs-12 col-sm-6 col-md-4">
-                    <div class="block_img center-block col-xs-6 col-sm-12 col-md-12">
-                        <img class="img_book" src="<?php echo $book['image_url'];?><" alt="{{ book.title }}">
-                    </div>
-
-                    <div class="block_text center-block col-xs-6 col-sm-12 col-md-12">
-                        <p class="text_intro">{{ book.description}}</p>
-                        <a class="btn_more" href=""> En savoir + </a>
-                    </div>
-                </div>
-
-
-            </div>
-
-        {% endblock %}
         <footer class="container-fluid">
             <div class="row">
                 <div class="footerDiv col-xs-12 col-md-4">
