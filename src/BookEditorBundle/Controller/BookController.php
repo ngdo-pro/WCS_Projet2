@@ -40,6 +40,31 @@ class BookController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
+            $file = $book->getImageUrl();
+            $fileName = md5(uniqid()) . '.' . $file->guessExtension();
+            $file->move(
+                $this->getParameter('covers_directory'),
+                $fileName
+            );
+            $book->setImageUrl($fileName);
+
+            $file = $book->getPressImageUrl();
+            $fileName = md5(uniqid()) . '.' . $file->guessExtension();
+            $file->move(
+                $this->getParameter('pressArticle_directory'),
+                $fileName
+            );
+            $book->setPressImageUrl($fileName);
+
+            $file = $book->getPurchaseOrderImageUrl();
+            $fileName = md5(uniqid()) . '.' . $file->guessExtension();
+            $file->move(
+                $this->getParameter('purchaseOrder_directory'),
+                $fileName
+            );
+            $book->setPurchaseOrderImageUrl($fileName);
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($book);
             $em->flush();
