@@ -8,6 +8,9 @@ imports:
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: en
+    covers_directory: '%kernel.root_dir%/../web/uploads/img/covers'
+    pressArticle_directory: '%kernel.root_dir%/../web/uploads/img/pressArticle'
+    purchaseOrder_directory: '%kernel.root_dir%/../web/uploads/img/purchaseOrder'
 
 framework:
     #esi:             ~
@@ -35,6 +38,10 @@ framework:
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
+    globals:
+        covers_directory: "uploads/img/covers/"
+        pressArticle_directory: "uploads/img/pressArticle/"
+        purchaseOrder_directory: "uploads/img/purchaseOrder/"
 
 # Doctrine Configuration
 doctrine:
