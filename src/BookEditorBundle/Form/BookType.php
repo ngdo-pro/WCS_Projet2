@@ -3,6 +3,7 @@
 namespace BookEditorBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -19,9 +20,9 @@ class BookType extends AbstractType
             ->add('author')
             ->add('description')
             ->add('facebookLinkUrl')
-            ->add('imageUrl')
+            ->add('imageUrl', FileType::class, array('label' => 'Photo de la couverture du livre', 'data_class' => null))
             ->add('pressTitle')
-            ->add('pressImageUrl')
+            ->add('pressImageUrl', FileType::class, array('label' => 'Photo de l\'article de presse', 'data_class' => null))
             ->add('releaseDate', 'datetime')
         ;
     }
