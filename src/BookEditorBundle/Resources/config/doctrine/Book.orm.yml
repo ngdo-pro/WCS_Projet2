@@ -38,4 +38,8 @@ BookEditorBundle\Entity\Book:
             unique: true
         releaseDate:
             type: datetime
+        purchaseOrderImageUrl:
+            type: string
+            length: 255
+            nullable: true
     lifecycleCallbacks: {  }
