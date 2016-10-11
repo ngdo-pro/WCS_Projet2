@@ -26,11 +26,11 @@
                 <td>{{ book.author }}</td>
                 <td>{{ book.description }}</td>
                 <td>{{ book.facebookLinkUrl }}</td>
-                <td><img src="{{ asset('uploads/img/covers/' ~ book.imageUrl) }}" width="200px" height="auto"></td>
+                <td><img src="{{ asset(covers_directory ~ book.imageUrl) }}" width="200px" height="auto"></td>
                 <td>{{ book.pressTitle }}</td>
-                <td><img src="{{ asset('uploads/img/pressArticle/' ~ book.pressImageUrl) }}" width="200px" height="auto"></td>
+                <td><img src="{{ asset(pressArticle_directory ~ book.pressImageUrl) }}" width="200px" height="auto"></td>
                 <td>{% if book.releaseDate %}{{ book.releaseDate|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td><img src="{{ asset('uploads/img/purchaseOrder/' ~ book.purchaseOrderImageUrl) }}" width="200px" height="auto"></td>
+                <td><img src="{{ asset(purchaseOrder_directory ~ book.purchaseOrderImageUrl) }}" width="200px" height="auto"></td>
                 <td>
                     <ul>
                         <li>
