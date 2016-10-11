@@ -1,1 +1,16 @@
 {% extends "base.html.twig" %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset("css/carousel.css") }}">
+{% endblock %}
+{% block body %}
+    <div id="carousel" class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4">
+                <img src="{{ asset('upload/' . book.imgUrl) }}">
+            </div>
+            <div class="col-xs-8">
+                texte
+            </div>
+        </div>
+    </div>
+{% endblock %}

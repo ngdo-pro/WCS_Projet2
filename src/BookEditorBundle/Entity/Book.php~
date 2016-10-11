@@ -248,32 +248,4 @@ class Book
     {
         return $this->releaseDate;
     }
-    /**
-     * @var string
-     */
-    private $purchaseOrderImageUrl;
-
-
-    /**
-     * Set purchaseOrderImageUrl
-     *
-     * @param string $purchaseOrderImageUrl
-     * @return Book
-     */
-    public function setPurchaseOrderImageUrl($purchaseOrderImageUrl)
-    {
-        $this->purchaseOrderImageUrl = $purchaseOrderImageUrl;
-
-        return $this;
-    }
-
-    /**
-     * Get purchaseOrderImageUrl
-     *
-     * @return string 
-     */
-    public function getPurchaseOrderImageUrl()
-    {
-        return $this->purchaseOrderImageUrl;
-    }
 }
