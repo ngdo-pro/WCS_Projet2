@@ -1,5 +1,10 @@
+@import 'https://fonts.googleapis.com/css?family=Coiny';
+
 #carousel{
     background: rgba(0, 0, 0, 0.35);
+    -webkit-box-shadow: inset 0 -2px 10px black;
+    -moz-box-shadow: inset 0 -2px 10px black;
+    box-shadow: inset 0 -2px 10px black;
     height: 30vh;
 }
 
@@ -14,6 +19,10 @@
     display: none;
 }
 
+#carousel .container-fluid .row .active{
+    display: block;
+}
+
 #carousel .img-container{
     height: 20vh;
     width: 20vh;
@@ -21,10 +30,29 @@
 }
 
 #carousel .img-container img{
-    height: 100%;
-    width: 100%;
+    max-height: 100%;
+    max-width: 100%;
 }
 
-#carousel .container-fluid .row .active{
-    display: block;
+#carousel .title-container{
+    border-left: 4px solid white;
+    height: 20vh;
+    width: 100%;
+    margin: 5vh auto;
+}
+
+#carousel .title-container p{
+    color: #ffffff;
+    padding: 0 20%;
+}
+
+#carousel .title-container p .quote{
+    font-family: 'Coiny', cursive;
+    font-size: 1.1em;
+}
+
+@media only screen and (min-width: 767px){
+    #carousel .title-container p{
+        font-size: 3em;
+    }
 }

@@ -8,14 +8,14 @@
             <div class="row">
                 {% for book in carouselBooks %}
                     <div class="slide">
-                        <div class="col-xs-5">
+                        <div class="col-xs-4">
                             <div class="img-container">
                                 <img src="{{ asset(covers_directory ~ book.imageUrl) }}" alt="{{ book.title }}">
                             </div>
                         </div>
-                        <div class="col-xs-7">
+                        <div class="col-xs-8">
                             <div class="title-container">
-                                <p>{{ book.title }}</p>
+                                <p><span class="quote">"</span>{{ book.title }}<span class="quote">"</span></p>
                             </div>
                         </div>
                     </div>
