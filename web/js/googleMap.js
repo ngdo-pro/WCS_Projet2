@@ -1,8 +1,13 @@
-/**
- * Created by apprenti on 12/10/16.
- */
 function initMap() {
-    var uluru = {lat :  -25.363, lng: 131.044};
+    var lyon = {lat: 45.763859, lng: 4.880444};
     var map = new google.maps.Map(document.getElementById('map'), {
-        }
-        </script>
+        zoom: 16,
+        center: lyon
+    });
+    var marker = new google.maps.Marker({
+        position: lyon,
+        map: map
+    });
+}
+
+
