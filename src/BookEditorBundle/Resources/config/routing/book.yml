@@ -22,3 +22,8 @@ book_delete:
     path:     /{id}/delete
     defaults: { _controller: "BookEditorBundle:Book:delete" }
     methods:  DELETE
+
+book_aboutUs:
+    path:     /etre-edite
+    defaults: { _controller: "BookEditorBundle:Book:aboutUs" }
+    methods:  GET
