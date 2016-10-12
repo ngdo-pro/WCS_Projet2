@@ -1,3 +1,107 @@
+#content {
+    padding-top: 230px;
+}
+
+
+/* header */
+
+
+.navbar-default {
+    background: white;
+    z-index: 1;
+}
+
+.navbar-brand {
+    height:auto;
+}
+
+.navbar-brand img {
+    height: 170px;
+    margin-left: 40px;
+    margin-bottom: 28px;
+}
+
+
+.navbar-default .navbar-nav > .active > a {
+    background-color: inherit;
+    border-bottom: 2px solid purple;
+}
+
+.navbar-default .navbar-nav > .active > a:hover {
+    background-color: inherit;
+    color: inherit;
+}
+
+
+.navbar-nav > li > a {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+.navbar-default:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 229px;
+    width: 100%;
+    background: -webkit-gradient(linear, left top, right bottom, from(rgba(0,0,0,0)), to(rgba(255,255,255,1))), url(../img/ville.jpg) 0 -20px no-repeat;
+    opacity: .10;
+
+    z-index: -1;
+}
+
+
+.navbar-nav {
+    margin-top: auto !important;
+    margin-bottom: auto !important;
+}
+
+.navbar-toggle {
+    margin-top: 35px;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: purple;
+    text-align: center;
+}
+
+
+.navbar-default .navbar-toggle:focus {
+    background-color: inherit;
+}
+
+@media only screen and (max-width: 767px) {
+    .navbar-brand img {
+        height: 60px;
+        width: auto;
+        margin-left: 10px;
+        margin-bottom: 10px;
+    }
+
+
+    .navbar-default:before {
+        height: 100px;
+        background-size: cover;
+        background-position-y: 0;
+    }
+
+    .navbar-nav > li > a {
+        font-size: 12px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    ul {
+        padding-right: 30px;
+        padding-top: 100px;
+    }
+}
+
+/* footer */
+
 footer {
     -webkit-box-shadow: 0px -1px 5px #ededed;
     -moz-box-shadow: 0px -1px 5px #ededed;
