@@ -6,7 +6,6 @@
 /* header */
 
 
-
 .navbar-default {
     background: white;
     z-index: 1;
@@ -23,16 +22,21 @@
 }
 
 
-
-
 .navbar-default .navbar-nav > .active > a {
-    background-color: white;
+    background-color: inherit;
     border-bottom: 2px solid purple;
 }
+
+.navbar-default .navbar-nav > .active > a:hover {
+    background-color: inherit;
+    color: inherit;
+}
+
 
 .navbar-nav > li > a {
     font-size: 20px;
     font-weight: bold;
+    text-align: center;
 }
 
 
@@ -43,8 +47,9 @@
     top: 0;
     height: 229px;
     width: 100%;
-    background: url(../img/ville.jpg) 0 -20px no-repeat;
+    background: -webkit-gradient(linear, left top, right bottom, from(rgba(0,0,0,0)), to(rgba(255,255,255,1))), url(../img/ville.jpg) 0 -20px no-repeat;
     opacity: .10;
+
     z-index: -1;
 }
 
@@ -54,12 +59,21 @@
     margin-bottom: auto !important;
 }
 
+.navbar-toggle {
+    margin-top: 35px;
+}
+
 .navbar-default .navbar-toggle .icon-bar {
     background-color: purple;
     text-align: center;
 }
 
-@media only screen and (max-width: 768px) {
+
+.navbar-default .navbar-toggle:focus {
+    background-color: inherit;
+}
+
+@media only screen and (max-width: 767px) {
     .navbar-brand img {
         height: 60px;
         width: auto;
@@ -72,6 +86,10 @@
         height: 100px;
         background-size: cover;
         background-position-y: 0;
+    }
+
+    .navbar-nav > li > a {
+        font-size: 12px;
     }
 }
 
