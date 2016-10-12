@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/bookPage.css') }}">
+{% endblock %}
+{% block body %}
+
+<section class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="img-container">
+                <img src="{{ asset(covers_directory ~ book.imageUrl) }}">
+            </div>
+        </div>
+        <div class="col-md-8">
+            <h1>{{ book.title }}</h1>
+            <p class="description">{{ book.description }}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <table class="info-container">
+                <tr>
+                    <th><span class="tag">Auteur</span></th>
+                    <td>{{ book.author }}</td>
+                </tr>
+                <tr>
+                    <th><span class="tag">Date de parution</span></th>
+                    <td>{{ book.releaseDate|date("m/d/Y", "Europe/Paris") }}</td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-md-8">
+            <a href="{{ book.facebookLinkUrl }}">Facebook</a>
+        </div>
+    </div>
+
+</section>
+
+{% endblock %}
