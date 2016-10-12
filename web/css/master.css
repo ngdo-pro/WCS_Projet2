@@ -48,12 +48,15 @@
     float:none;
 }
 .btn_more{
-    float: right;
+    /*float: right;*/
     padding:2px;
+    margin-bottom: 10px;;
     border:1px solid black;
     text-decoration: none;
     color:black;
-    margin-top:50px;
+    right:10%;
+    position: absolute;
+    z-index:2;
 
 }
 .btn_more:hover{
