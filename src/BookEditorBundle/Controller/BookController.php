@@ -23,9 +23,12 @@ class BookController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $books = $em->getRepository('BookEditorBundle:Book')->findAll();
+        $carouselBooks = $em->getRepository('BookEditorBundle:Book')->findTheLastThree();
+
 
         return $this->render('book/index.html.twig', array(
             'books' => $books,
+            'carouselBooks' => $carouselBooks
         ));
     }
 

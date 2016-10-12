@@ -1,5 +1,5 @@
 #content {
-    padding-top: 230px;
+    padding-top: 229px;
 }
 
 
@@ -90,6 +90,10 @@
 
     .navbar-nav > li > a {
         font-size: 12px;
+    }
+
+    #content {
+        padding-top: 100px;
     }
 }
 
