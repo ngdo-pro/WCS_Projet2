@@ -1,10 +1,16 @@
 
 
 /*______block book home page_____*/
-.container_block_books{
-    margin:20px auto 20px auto;
-    padding:0px;
 
+.title_publish{
+    color: #5D1C43;
+    margin: 20px auto 0px auto;
+    padding: 0px;
+}
+.container_block_books{
+    margin:0px auto 20px auto;
+    padding:0px;
+    border-top:4px solid #5D1C43;
 }
 .block_books{
     background-color: white;
