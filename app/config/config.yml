@@ -38,6 +38,10 @@ framework:
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
+    globals:
+        covers_directory: "uploads/img/covers/"
+        pressArticle_directory: "uploads/img/pressArticle/"
+        purchaseOrder_directory: "uploads/img/purchaseOrder/"
 
 # Doctrine Configuration
 doctrine:
