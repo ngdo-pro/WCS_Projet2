@@ -1,0 +1,30 @@
+#carousel{
+    background: rgba(0, 0, 0, 0.35);
+    height: 30vh;
+}
+
+#carousel .container-fluid,
+#carousel .container-fluid .row,
+#carousel .container-fluid .row .slide,
+#carousel .container-fluid .row .slide > div{
+    height: 100%;
+}
+
+#carousel .container-fluid .row .slide{
+    display: none;
+}
+
+#carousel .img-container{
+    height: 20vh;
+    width: 20vh;
+    margin: 5vh auto;
+}
+
+#carousel .img-container img{
+    height: 100%;
+    width: 100%;
+}
+
+#carousel .container-fluid .row .active{
+    display: block;
+}
