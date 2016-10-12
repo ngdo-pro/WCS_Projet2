@@ -1,3 +1,3 @@
 $(function(){
-    $('.slide:first-child').addClass('active');
+    $('.item:first-child').addClass('active');
 });
