@@ -10,11 +10,12 @@
     background-color: white;
     padding-bottom: 10px;
     padding-top: 10px;
+    margin-top: 10px;
     /*border:1px solid black;*/
 }
 
 .block_img{
-    background:linear-gradient( 135deg, #999999 , #e9e9e9, #999999  );
+    background:linear-gradient( 135deg, #999999 , #e9e9e9, #999999 );
     width: 300px;
     height: 300px;
     padding-bottom: 5px;
@@ -37,12 +38,30 @@
 .block_text{
     border-left:2px solid black;
     width:300px;
+    height: 150px;
+    margin-top: 20px;
+    padding-top: 10px;
+
 
 }
 .text_intro{
     margin:5px;
-    height:100px;
-    overflow: hidden;
+    height:0px;
+}
+.block_text h2, .block_text h3, .block_text p{
+    margin:  0px 0px 5px 0px;
+    text-align:right;
+}
+.block_text h2{
+    font-size: 17px;
+    font-weight : bold;
+}
+.block_text h3{
+    font-size: 14px;
+    font-style: italic;
+}
+.block_text p{
+    font-size: 15px;
 }
 .center-block{
     float:none;
@@ -54,7 +73,7 @@
     border:1px solid black;
     text-decoration: none;
     color:black;
-    right:10%;
+    right:5%;
     position: absolute;
     z-index:2;
 
@@ -66,11 +85,13 @@
 }
 
 @media screen and (max-width: 768px) {
+    .block_img{
+        background:linear-gradient( 135deg, white, white );
+    }
     .block_img {
-        width: 200px;
-        height: 200px;
-        /*display: flex;
-        justify-content: center;*/
+        width: 150px;
+        height: auto;
+
     }
 
     .img_book {
@@ -92,15 +113,19 @@
 
     .center-block {
         float: left;
+        padding-left: 5px;
     }
 
     .vertical_center_block {
         display: flex;
         align-items: center;
+        padding-left: 0px;
     }
 
     .block_text {
-        border: 0px;
+        border: 1px;
+        margin-top: 0px;
+        padding-top: 20px;
         /*width:auto;*/
     }
 

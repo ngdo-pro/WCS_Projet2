@@ -49,7 +49,9 @@
                 </div>
 
                 <div class="block_text center-block col-xs-6 col-sm-12 col-md-12">
-                    <p class="text_intro">{{ book.description }}</p>
+                    <h2>{{ book.title }}</h2>
+                    <h3>{{ book.author }}</h3>
+                    <p class="text_intro">{{ book.description[:50] }} ...</p>
 
                 </div>
                 <div><a class="btn_more" href=""> En savoir + </a></div>
