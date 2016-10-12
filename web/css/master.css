@@ -1,9 +1,8 @@
-a{
-    color: red;
-}
+
 /*______block book home page_____*/
 .container_block_books{
     margin:20px auto 20px auto;
+    padding:0px;
 
 }
 .block_books{
@@ -37,10 +36,12 @@ a{
 .block_text{
     border-left:2px solid black;
     width:300px;
+
 }
 .text_intro{
     margin:5px;
     height:100px;
+    overflow: hidden;
 }
 .center-block{
     float:none;
@@ -51,6 +52,8 @@ a{
     border:1px solid black;
     text-decoration: none;
     color:black;
+    margin-top:50px;
+
 }
 .btn_more:hover{
     background-color: #5d1c43 ;

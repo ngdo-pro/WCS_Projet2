@@ -4,23 +4,24 @@
     <h1>Book list</h1>
 
 
-        {% for book in books %}
                 <div class="container container_block_books">
-
+                {% for book in books %}
                     <div class="block_books vertical_center_block col-xs-12 col-sm-6 col-md-4">
                         <div class="block_img center-block col-xs-6 col-sm-12 col-md-12">
-                            <img class="img_book" src="{{ asset('uploads/img/covers/' ~ book.image_url) }}" alt="{{ book.title }}"/>
+                            <img class="img_book" src="{{ asset('uploads/img/covers/' ~ book.imageUrl) }}" alt="{{ book.title }}"/>
                         </div>
 
                         <div class="block_text center-block col-xs-6 col-sm-12 col-md-12">
                             <p class="text_intro">{{ book.description }}</p>
                             <a class="btn_more" href=""> En savoir + </a>
                         </div>
+
                     </div>
+                {% endfor %}
                 </div>
 
 
-        {% endfor %}
+
 
 
 {% endblock %}
