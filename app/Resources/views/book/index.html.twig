@@ -1,27 +1,64 @@
 {% extends 'base.html.twig' %}
-
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/carousel.css') }}">
+{% endblock %}
 {% block body %}
-    <h1>Book list</h1>
+    <div id="carousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#carousel" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel" data-slide-to="1"></li>
+            <li data-target="#carousel" data-slide-to="2"></li>
+        </ol>
 
-
-                <div class="container container_block_books">
-                {% for book in books %}
-                    <div class="block_books vertical_center_block col-xs-12 col-sm-6 col-md-4">
-                        <div class="block_img center-block col-xs-6 col-sm-12 col-md-12">
-                            <img class="img_book" src="{{ asset('uploads/img/covers/' ~ book.imageUrl) }}" alt="{{ book.title }}"/>
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+            {% for book in carouselBooks %}
+                <div class="item row">
+                    <div class="col-xs-4">
+                        <div class="img-container">
+                            <img src="{{ asset(covers_directory ~ book.imageUrl) }}" alt="{{ book.title }}">
                         </div>
-
-                        <div class="block_text center-block col-xs-6 col-sm-12 col-md-12">
-                            <p class="text_intro">{{ book.description }}</p>
-
-                        </div>
-                            <div><a class="btn_more" href=""> En savoir + </a></div>
                     </div>
-                {% endfor %}
+                    <div class="col-xs-8">
+                        <div class="title-container">
+                            <p><span class="quote">"</span>{{ book.title }}<span class="quote">"</span></p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <!-- Controls -->
+        <a class="left carousel-control" href="#carousel" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#carousel" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+
+    <div class="container container_block_books">
+        {% for book in books %}
+            <div class="block_books vertical_center_block col-xs-12 col-sm-6 col-md-4">
+                <div class="block_img center-block col-xs-6 col-sm-12 col-md-12">
+                    <img class="img_book" src="{{ asset('uploads/img/covers/' ~ book.imageUrl) }}" alt="{{ book.title }}"/>
                 </div>
 
+                <div class="block_text center-block col-xs-6 col-sm-12 col-md-12">
+                    <p class="text_intro">{{ book.description }}</p>
+
+                </div>
+                <div><a class="btn_more" href=""> En savoir + </a></div>
+            </div>
+        {% endfor %}
+    </div>
 
 
-
-
+{% endblock %}
+{% block javascripts %}
+    <script src="{{ asset('js/carousel.js') }}"></script>
 {% endblock %}
