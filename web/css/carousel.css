@@ -1,3 +1,15 @@
 #carousel{
     background: rgba(0, 0, 0, 0.35);
 }
+
+#carousel_img img{
+    display: block;
+    margin: 40px auto;
+}
+
+#carousel_text p{
+    border-left: 2px solid white;
+    height: 200px;
+    margin: 40px 0;
+    padding: 0 40px;
+}
