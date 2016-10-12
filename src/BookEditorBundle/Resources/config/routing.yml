@@ -4,4 +4,4 @@ book_editor_book:
 
 book_editor_homepage:
     path:     /
-    defaults: { _controller: BookEditorBundle:Default:index }
+    defaults: { _controller: BookEditorBundle:Book:index }

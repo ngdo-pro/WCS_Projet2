@@ -12,4 +12,13 @@ use Doctrine\ORM\EntityRepository;
  */
 class BookRepository extends EntityRepository
 {
+    public function findTheLastThree(){
+
+        $query = $this->createQueryBuilder('p')
+            ->setMaxResults(3)
+            ->orderBy('p.releaseDate', 'DESC')
+            ->getQuery();
+
+        return $query->getResult();
+    }
 }
