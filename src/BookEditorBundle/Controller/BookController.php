@@ -138,6 +138,13 @@ class BookController extends Controller
         return $this->redirectToRoute('book_index');
     }
 
+
+    public function aboutUsAction() {
+
+        return $this->render('book/aboutUs.html.twig');
+    }
+
+
     /**
      * Creates a form to delete a Book entity.
      *
