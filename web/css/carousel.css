@@ -11,8 +11,8 @@
 }
 
 #carousel .img-container img{
-    height: 100%;
-    width: 100%;
+    max-height: 100%;
+    max-width: 100%;
 }
 
 #carousel .title-container{
@@ -21,24 +21,45 @@
     margin: 40px auto;
 }
 
-#carousel .title-container p{
+#carousel .title-container p {
     color: white;
     font-size: 2.2em;
     padding: 0 20%;
     text-align: right;
 }
 
-.carousel-indicators{
+.carousel-indicators {
     bottom: 0;
 }
 
-#carousel .title-container p .quote{
+#carousel .title-container p .quote {
     font-family: "Coiny", cursive;
     font-size: 1.3em;
 }
 
+
 #carousel  ol {
     z-index: 0;
+}
+
+#carousel .title-container a{
+    padding: 5px 10px;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+    background: #5d1c43;
+    font-size: .75em;
+    -webkit-transition: background 0.3s, color 0.3s;
+    -moz-transition: background 0.3s, color 0.3s;
+    -ms-transition: background 0.3s, color 0.3s;
+    -o-transition: background 0.3s, color 0.3s;
+    transition: background 0.3s, color 0.3s;
+}
+
+#carousel .title-container a:hover{
+    background: white;
+    color: #5d1c43;
+>>>>>>> 210152ede1e65e662bb9659f7d69e70723857d22
 }
 
 @media only screen and (max-width: 767px) {
@@ -57,7 +78,8 @@
 }
 
 .carousel-indicators{
-    left: 90%;
+    left: 115%;
+    width: 50px;
 }
 
 .carousel-indicators li{
@@ -77,7 +99,6 @@
     text-decoration: none;
     -webkit-transition: background 0.3s, color 0.3s;
     -moz-transition: background 0.3s, color 0.3s;
-    -ms-transition: background 0.3s, color 0.3s;
     -o-transition: background 0.3s, color 0.3s;
     transition: background 0.3s, color 0.3s;
 }
