@@ -37,6 +37,10 @@
     font-size: 1.3em;
 }
 
+#carousel  ol {
+    z-index: 0;
+}
+
 @media only screen and (max-width: 767px) {
     #carousel .img-container{
         height: 100px;
