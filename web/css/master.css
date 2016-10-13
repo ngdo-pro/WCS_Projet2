@@ -97,13 +97,10 @@
     .block_img {
         width: 150px;
         height: auto;
-
     }
-
     .img_book {
         height: 130px;
     }
-
     .block_img img {
         margin: 0px 0px 0px 0px;
         box-shadow: 5px 5px 5px 0px #656565;
@@ -111,35 +108,37 @@
         width: auto;
         display: block;
     }
-
     .block_books {
         border-top: 1px solid;
         border-color: lightgray;
     }
-
     .center-block {
         float: left;
         padding-left: 5px;
     }
-
     .vertical_center_block {
         display: flex;
         align-items: center;
         padding-left: 0px;
     }
-
     .block_text {
         border: 1px;
         margin-top: 0px;
         padding-top: 20px;
-
     }
-
+    .block_btn_more{
+        background-color: red;
+        margin-top: 30px;
+        display: block;
+    }
     .btn_more {
         bottom: 0;
     }
     .block_text h2, .block_text h3, .block_text p{
         text-align:right;
+    }
+    .block_text p{
+        margin-bottom: 20px;;
     }
 }
 

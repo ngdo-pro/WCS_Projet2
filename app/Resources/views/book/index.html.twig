@@ -45,17 +45,21 @@
 
         {% for book in books %}
             <div class="block_books vertical_center_block col-xs-12 col-sm-6 col-md-4">
-                <div class="block_img center-block col-xs-6 col-sm-12 col-md-12">
+                <div class="block_img center-block col-xs-4 col-sm-12 col-md-12">
                     <img class="img_book" src="{{ asset('uploads/img/covers/' ~ book.imageUrl) }}" alt="{{ book.title }}"/>
                 </div>
 
-                <div class="block_text center-block col-xs-6 col-sm-12 col-md-12">
-                    <h2>{{ book.title }}</h2>
-                    <h3>{{ book.author }}</h3>
-                    <p class="text_intro">{{ book.description[:50] }} ...</p>
+                <div class="block_text center-block col-xs-8 col-sm-12 col-md-12">
+                    <div class="block_info">
+                        <h2>{{ book.title }}</h2>
+                        <h3>{{ book.author }}</h3>
+                        <p class="text_intro">{{ book.description[:50] }} ...</p>
+                    </div>
+
+                </div>
+                <div class="block_btn_more">
                     <a class="btn_more" href=""> En savoir + </a>
                 </div>
-
             </div>
         {% endfor %}
     </div>
