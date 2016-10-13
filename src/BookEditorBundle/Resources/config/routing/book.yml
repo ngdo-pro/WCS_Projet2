@@ -27,3 +27,8 @@ book_showToPublic:
     path:     /livre/{id}
     defaults: { _controller: "BookEditorBundle:Book:showToPublic" }
     methods:  GET
+
+book_aboutUs:
+    path:     /etre-edite
+    defaults: { _controller: "BookEditorBundle:Book:aboutUs" }
+    methods:  GET
