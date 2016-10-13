@@ -1,0 +1,86 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/bookPage.css') }}">
+{% endblock %}
+{% block body %}
+
+<section class="container bookPresentation">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="img-container">
+                <img src="{{ asset(covers_directory ~ book.imageUrl) }}" data-toggle="modal" data-target="#coverModal">
+                <!-- Modal book's cover-->
+                <div class="modal fade" id="coverModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">{{ book.title }}</h4>
+                            </div>
+                            <div class="modal-body">
+                                <img src="{{ asset(covers_directory ~ book.imageUrl) }}">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <h1>{{ book.title }}</h1>
+            <p class="description">{{ book.description }}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <table class="info-container">
+                <tr>
+                    <th><span class="tag">Auteur</span></th>
+                    <td>{{ book.author }}</td>
+                </tr>
+                <tr>
+                    <th><span class="tag">Date de parution</span></th>
+                    <td>{{ book.releaseDate|date("d/m/Y", "Europe/Paris") }}</td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-md-8">
+            <a href="{{ book.facebookLinkUrl }}">Facebook</a>
+        </div>
+    </div>
+</section>
+<div class="container">
+    <hr>
+</div>
+<section class="container pressSection">
+    <h2 class="text-center">La presse en parle</h2>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="pressCard">
+                <h3 class="text-center">{{ book.pressTitle }}</h3>
+                <div class="pressImage">
+                    <img src="{{ asset(pressArticle_directory ~ book.pressImageUrl) }}" alt="{{ book.pressTitle }}" data-toggle="modal" data-target="#pressModal">
+                    <div class="modal fade" id="pressModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="myModalLabel">{{ book.pressTitle }}</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <img src="{{ asset(pressArticle_directory ~ book.pressImageUrl) }}">
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
