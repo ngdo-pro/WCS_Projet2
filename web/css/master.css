@@ -1,3 +1,8 @@
+
+
+
+
+
 #content {
     padding-top: 229px;
 }
@@ -7,7 +12,7 @@
 
 
 .navbar-default {
-    background: white;
+    background: #fff;
     z-index: 1;
 }
 
@@ -22,21 +27,31 @@
 }
 
 
-.navbar-default .navbar-nav > .active > a {
-    background-color: inherit;
-    border-bottom: 2px solid purple;
-}
-
-.navbar-default .navbar-nav > .active > a:hover {
-    background-color: inherit;
-    color: inherit;
-}
-
-
-.navbar-nav > li > a {
+.navbar-default .navbar-nav > li > a {
+    color: #636467;
     font-size: 20px;
     font-weight: bold;
     text-align: center;
+}
+
+.navbar-default .navbar-nav > .active > a {
+    background-color: inherit;
+    border-bottom: 3px solid #5d1c43;
+    color: #636467;
+}
+
+
+.navbar-default .navbar-nav > .active > a:hover {
+    background-color: inherit;
+    color: #5d1c43;
+}
+
+.navbar-default .navbar-nav > li > a:hover {
+    color: #5d1c43;
+}
+
+.navbar-default .navbar-nav > .active > a:focus {
+    background-color: inherit;
 }
 
 
@@ -64,10 +79,13 @@
 }
 
 .navbar-default .navbar-toggle .icon-bar {
-    background-color: purple;
+    background-color: #5d1c43;
     text-align: center;
 }
 
+.navbar-default .navbar-toggle:hover {
+    background-color: inherit;
+}
 
 .navbar-default .navbar-toggle:focus {
     background-color: inherit;
@@ -88,7 +106,7 @@
         background-position-y: 0;
     }
 
-    .navbar-nav > li > a {
+    .navbar-default .navbar-nav > li > a {
         font-size: 12px;
     }
 
@@ -105,6 +123,7 @@
 }
 
 /* footer */
+
 
 footer {
     -webkit-box-shadow: 0px -1px 5px #ededed;

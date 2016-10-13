@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 {% block stylesheets %}
     <link rel="stylesheet" href="{{ asset('css/carousel.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/index.css.css') }}">
 {% endblock %}
 {% block body %}
     <div id="carousel" class="carousel slide" data-ride="carousel">
@@ -45,6 +46,28 @@
             <span class="sr-only">Next</span>
         </a>
     </div>
+
+    <h3 class="title_publish container">Récemment publiés</h3>
+    <div class="container container_block_books">
+
+        {% for book in books %}
+            <div class="block_books vertical_center_block col-xs-12 col-sm-6 col-md-4">
+                <div class="block_img center-block col-xs-6 col-sm-12 col-md-12">
+                    <img class="img_book" src="{{ asset(covers_directory ~ book.imageUrl) }}" alt="{{ book.title }}"/>
+                </div>
+
+                <div class="block_text center-block col-xs-6 col-sm-12 col-md-12">
+                    <h2>{{ book.title }}</h2>
+                    <h3>{{ book.author }}</h3>
+                    <p class="text_intro">{{ book.description[:50] }} ...</p>
+                    <a class="btn_more" href="{{ path('book_showToPublic', {'id': book.id}) }}"> En savoir + </a>
+                </div>
+
+            </div>
+        {% endfor %}
+    </div>
+
+
 {% endblock %}
 {% block javascripts %}
     <script src="{{ asset('js/carousel.js') }}"></script>

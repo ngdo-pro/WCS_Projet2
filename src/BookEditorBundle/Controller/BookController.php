@@ -32,6 +32,18 @@ class BookController extends Controller
         ));
     }
 
+    public function ourBooksAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $books = $em->getRepository('BookEditorBundle:Book')->findAll();
+
+
+        return $this->render('book/ourBooks.html.twig', array(
+            'books' => $books,
+        ));
+    }
+
     /**
      * Creates a new Book entity.
      *
@@ -149,6 +161,12 @@ class BookController extends Controller
 
 
 
+    public function aboutUsAction() {
+
+        return $this->render('book/aboutUs.html.twig');
+
+    }
+
     /**
      * Creates a form to delete a Book entity.
      *
@@ -164,4 +182,6 @@ class BookController extends Controller
             ->getForm()
         ;
     }
+
 }
+

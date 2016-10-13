@@ -59,7 +59,7 @@
     padding: 5px 10px;
     position: absolute;
     text-decoration: none;
-    right: 0;
+    right: 15px;
     -webkit-transition: background 0.1s, color 0.3s;
     -moz-transition: background 0.1s, color 0.3s;
     -o-transition: background 0.1s, color 0.3s;
@@ -93,7 +93,7 @@ hr{
 }
 
 .pressCard{
-    background: rgba(0, 0, 0, 0.35);
+    background: rgba(0, 0, 0, 0.1);
     border: 1px solid #5d1c43;
     -webkit-box-shadow: 1px 1px 2px black;
     -moz-box-shadow: 1px 1px 2px black;
@@ -104,7 +104,6 @@ hr{
 
 .pressCard h3{
     border-bottom: 1px solid #5d1c43;
-    color: white;
     font-weight: bold;
     padding-bottom: 10px;
 }
@@ -132,6 +131,7 @@ hr{
     .bookPresentation a{
         bottom: 0;
         position: relative;
+        right: 0;
     }
 
     .bookPresentation .row:nth-child(2) > div:nth-child(2){
