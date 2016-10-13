@@ -22,7 +22,13 @@
                     </div>
                     <div class="col-xs-8">
                         <div class="title-container">
-                            <p><span class="quote">"</span>{{ book.title }}<span class="quote">"</span></p>
+                            <p>
+                                <span class="quote">"</span>
+                                {{ book.title }}
+                                <span class="quote">"</span>
+                                <a href="{{ path('book_showToPublic', {'id': book.id}) }}">En savoir +</a>
+                            </p>
+
                         </div>
                     </div>
                 </div>
