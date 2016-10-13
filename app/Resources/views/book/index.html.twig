@@ -26,9 +26,10 @@
                                 <span class="quote">"</span>
                                 {{ book.title }}
                                 <span class="quote">"</span>
+                                <br>
+                                <a href="{{ path('book_showToPublic', {'id': book.id}) }}">En savoir +</a>
                             </p>
-                            <a href="{{ path('book_showToPublic', {'id': book.id}) }}">En savoir +</a>
-                        </div>
+                            </div>
                     </div>
                 </div>
             {% endfor %}
