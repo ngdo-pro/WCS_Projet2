@@ -1,4 +1,4 @@
-#Projet 2
-##Wild Code School
+rdm-editions
+============
 
-Par Christian Jecko - Gianni Napoli - Kevin Javazzo - Nicolas Gomes de Oliveira
+A Symfony project created on October 10, 2016, 4:57 pm.

@@ -1,0 +1,4 @@
+book_editor:
+    resource: "@BookEditorBundle/Resources/config/routing.yml"
+    prefix:   /
+

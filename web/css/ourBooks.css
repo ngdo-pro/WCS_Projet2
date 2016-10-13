@@ -1,0 +1,94 @@
+.bookArray{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.bookArray .tableDescri p {
+    /*text-align: justify;*/
+    margin-bottom: 5px;
+}
+
+.bookArray .bookTitle h2 {
+    margin-top: 0;
+}
+
+.bookArray .relDate p {
+    text-align: right;
+}
+
+.bookArray .tableImg {
+    background: linear-gradient(135deg, #999999, #e9e9e9, #999999);
+    width: 200px;
+    height: 200px;
+    padding: 5px 0px 5px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.bookArray .tableImg img {
+    margin: 25px 0px 20px 0px;
+    box-shadow: 10px 10px 10px 0px #656565;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 90%;
+    max-height: 90%;
+}
+
+.bookArray tr {
+    border-bottom: solid black 1px;
+}
+
+.bookArray tr:last-child {
+    border-bottom: none;
+}
+
+.bookArray .btn_more{
+    padding: 2px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    margin-top: 8px;
+    border: 1px solid black;
+    text-decoration: none;
+    color: black;
+    text-align: center;
+    float: right;
+}
+
+.bookArray .btn_more:hover {
+    background-color: #5d1c43;
+    text-decoration: none;
+    color: white;
+}
+
+.bookArray .celDescri {
+    margin-left: 10px;
+}
+
+@media only screen and (max-width: 767px) {
+    .bookArray .tableImg {
+        background: linear-gradient(135deg, white, white);
+        width: 100px;
+        height: auto;
+    }
+
+    .bookArray .tableImg img {
+        margin: 0px 0px 0px 0px;
+        box-shadow: 5px 5px 5px 0px #656565;
+        height: auto;
+        width: auto;
+        display: block;
+    }
+
+    .bookArray .tableDescri {
+        border: hidden;
+        overflow: hidden;
+        height: 80px;
+    }
+
+    .bookArray .celDescri h2 {
+        font-size: 17px;
+        font-weight: bold;
+    }
+}

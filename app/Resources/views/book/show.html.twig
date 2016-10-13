@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <h1>Book</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ book.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ book.title }}</td>
+            </tr>
+            <tr>
+                <th>Author</th>
+                <td>{{ book.author }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ book.description }}</td>
+            </tr>
+            <tr>
+                <th>Facebooklinkurl</th>
+                <td>{{ book.facebookLinkUrl }}</td>
+            </tr>
+            <tr>
+                <th>Imageurl</th>
+                <td><img src="{{ asset(covers_directory ~ book.imageUrl) }}" width="200px" height="auto"></td>
+            </tr>
+            <tr>
+                <th>Presstitle</th>
+                <td>{{ book.pressTitle }}</td>
+            </tr>
+            <tr>
+                <th>Pressimageurl</th>
+                <td><img src="{{ asset(pressArticle_directory ~ book.pressImageUrl) }}" width="200px" height="auto"></td>
+            </tr>
+            <tr>
+                <th>Releasedate</th>
+                <td>{% if book.releaseDate %}{{ book.releaseDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>PurchaseOrderImageUrl</th>
+                <td><img src="{{ asset(purchaseOrder_directory ~ book.purchaseOrderImageUrl) }}" width="200px" height="auto"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('book_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('book_edit', { 'id': book.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link
+                rel="stylesheet"
+                href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+                integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+                crossorigin="anonymous"
+        >
+        <link rel="stylesheet" href="{{ asset('css/master.css') }}">
+        {% block stylesheets %}{% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="{{ path('book_index') }}">
+                        <img src="{{ asset("img/logo.jpg") }}" class="img-responsive">
+                    </a>
+                </div>
+
+                <div class="collapse navbar-collapse" id="main-navbar">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="active"><a href="{{ path('book_index') }}">Accueil<span class="sr-only">(current)</span></a></li>
+                        <li><a href="{{ path('book_index') }}">Nos livres</a></li>
+                        <li><a href="{{ path('book_aboutUs') }}">Être édité</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div id="content">
+        {% block body %}{% endblock %}
+        </div>
+
+        <footer class="container-fluid">
+            <div class="row">
+                <div class="footerDiv col-xs-12 col-md-4">
+                    <a href="{{ path('book_aboutUs') }}">Contact</a>
+                </div>
+                <div class="footerDiv col-md-offset-4 col-xs-12 col-md-4">
+                    <a href="{{ path('book_index') }}">Mentions Légales</a>
+                </div>
+            </div>
+        </footer>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script
+                src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+                crossorigin="anonymous">
+        </script>
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>
