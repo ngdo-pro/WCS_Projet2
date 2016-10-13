@@ -32,6 +32,18 @@ class BookController extends Controller
         ));
     }
 
+    public function ourBooksAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $books = $em->getRepository('BookEditorBundle:Book')->findAll();
+
+
+        return $this->render('book/ourBooks.html.twig', array(
+            'books' => $books,
+        ));
+    }
+
     /**
      * Creates a new Book entity.
      *

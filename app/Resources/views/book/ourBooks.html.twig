@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/ourBooks.css') }}">
+{% endblock %}
+{% block body %}
+    <div class="container">
+    <table class="bookArray col-xs-12">
+        {% for book in books %}
+            <tr class="row">
+                <td>
+                    <div class="tableImg">
+                        <img src="{{ asset(covers_directory ~ book.imageUrl) }}" alt="book_picture">
+                    </div>
+                </td>
+                <td>
+                    <div class="row">
+                        <div class="col-xs-4 bookTitle">
+                            <h2>{{ book.title }}</h2>
+                        </div>
+                        <div class="col-xs-offset-4 col-xs-4 relDate">
+                            <p>Date de parution : {{ book.releaseDate|date('d/m/Y', 'Europe/Paris') }}</p>
+                        </div>
+
+                    </div>
+                    <p>{{ book.description }}</p> <a href="{{ path('bo') }}">
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    </div>
+{% endblock %}

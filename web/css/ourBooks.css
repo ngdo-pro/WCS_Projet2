@@ -1,0 +1,39 @@
+.bookArray p {
+    text-align: justify;
+    color: green;
+}
+
+.bookArray h3 {
+    color: red;
+    width: auto;
+}
+
+.bookArray input {
+    float: right;
+}
+
+.bookArray .bookTitle h2 {
+    margin-top: 0;
+}
+
+.bookArray .relDate p {
+    text-align: right;
+}
+
+.bookArray .tableImg {
+    width: 200px;
+    height: 200px;
+}
+
+.bookArray .tableImg img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.bookArray tr {
+    border-bottom: solid black 1px;
+}
+
+.bookArray tr:last-child {
+    border-bottom: none;
+}
