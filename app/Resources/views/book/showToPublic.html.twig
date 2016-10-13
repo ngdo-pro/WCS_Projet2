@@ -4,7 +4,7 @@
 {% endblock %}
 {% block body %}
 
-<section class="container">
+<section class="container bookPresentation">
     <div class="row">
         <div class="col-md-4">
             <div class="img-container">
@@ -33,7 +33,21 @@
             <a href="{{ book.facebookLinkUrl }}">Facebook</a>
         </div>
     </div>
-
 </section>
-
+<div class="container">
+    <hr>
+</div>
+<section class="container pressSection">
+    <h2 class="text-center">La presse en parle</h2>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="pressCard">
+                <h3 class="text-center">{{ book.pressTitle }}</h3>
+                <div class="pressImage">
+                    <img src="{{ asset(pressArticle_directory ~ book.pressImageUrl) }}" alt="{{ book.pressTitle }}">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}
