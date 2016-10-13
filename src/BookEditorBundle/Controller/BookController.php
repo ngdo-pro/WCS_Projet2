@@ -95,6 +95,15 @@ class BookController extends Controller
         ));
     }
 
+    public function showToPublicAction(Book $book){
+        return $this->render('book/showToPublic.html.twig', array(
+            'book' => $book
+        ));
+
+    }
+
+
+
     /**
      * Displays a form to edit an existing Book entity.
      *
@@ -139,11 +148,12 @@ class BookController extends Controller
     }
 
 
+
     public function aboutUsAction() {
 
         return $this->render('book/aboutUs.html.twig');
-    }
 
+    }
 
     /**
      * Creates a form to delete a Book entity.
@@ -161,6 +171,5 @@ class BookController extends Controller
         ;
     }
 
-
-
 }
+
