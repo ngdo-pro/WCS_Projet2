@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/ourBooks.css') }}">
+{% endblock %}
+{% block body %}
+    <div class="container">
+        <table class="bookArray col-md-8 col-md-offset-2">
+            {% for book in books %}
+                <tr class="row">
+                    <td>
+                        <div class="tableImg">
+                            <img src="{{ asset(covers_directory ~ book.imageUrl) }}" alt="book_picture">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="celDescri">
+                            <div class="row">
+                                <div class="col-xs-4 col-sm-4 bookTitle">
+                                    <h2>{{ book.title }}</h2>
+                                </div>
+                                <div class="col-sm-offset-4 col-xs-6 col-xs-offset-2 col-sm-4 relDate">
+                                    <p>{{ book.releaseDate|date('d/m/Y', 'Europe/Paris') }}</p>
+                                </div>
+
+                            </div>
+                            <div class="tableDescri">
+                                <p>{{ book.description[:200] }}...</p><br/>
+                            </div>
+                            <div class="row">
+                                <a class="btn_more" href="{{ path('book_showToPublic', { 'id': book.id }) }}">En Savoir
+                                    +</a>
+                            </div>
+
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}
