@@ -71,6 +71,16 @@
     font-weight: bold;
     font-size: .5em;
     text-decoration: none;
+    -webkit-transition: background 0.3s, color 0.3s;
+    -moz-transition: background 0.3s, color 0.3s;
+    -ms-transition: background 0.3s, color 0.3s;
+    -o-transition: background 0.3s, color 0.3s;
+    transition: background 0.3s, color 0.3s;
+}
+
+.carousel-know-more a:hover{
+    background: white;
+    color: #5d1c43;
 }
 
 @media only screen and (max-width: 450px) {
