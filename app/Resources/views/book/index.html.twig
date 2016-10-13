@@ -53,7 +53,7 @@
                     <h2>{{ book.title }}</h2>
                     <h3>{{ book.author }}</h3>
                     <p class="text_intro">{{ book.description[:50] }} ...</p>
-                    <a class="btn_more" href=""> En savoir + </a>
+                    <a class="btn_more" href="{{ path('book_showToPublic', {'id': book.id}) }}"> En savoir + </a>
                 </div>
 
             </div>
