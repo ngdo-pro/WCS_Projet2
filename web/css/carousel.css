@@ -28,6 +28,10 @@
     text-align: right;
 }
 
+.carousel-indicators{
+    bottom: 0;
+}
+
 #carousel .title-container p .quote{
     font-family: "Coiny", cursive;
     font-size: 1.3em;
@@ -60,10 +64,24 @@
     display: block;
 }
 
+.carousel-know-more a{
+    padding: 5px 10px;
+    background: #5D1C43;
+    color: white;
+    font-weight: bold;
+    font-size: .5em;
+    text-decoration: none;
+}
+
 @media only screen and (max-width: 450px) {
     #carousel .img-container{
         height: 60px;
         width: 60px;
+    }
+
+    .carousel-know-more a{
+        padding: 0 10px;
+        font-size: 1em;
     }
 
     #carousel .title-container{
