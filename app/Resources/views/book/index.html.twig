@@ -27,10 +27,11 @@
                                 <span class="quote">"</span>
                                 {{ book.title }}
                                 <span class="quote">"</span>
-                                <br>
-                                <a href="{{ path('book_showToPublic', {'id': book.id}) }}">En savoir +</a>
+                                <span class="carousel-know-more">
+                                    <a href="{{ path('book_showToPublic', {'id': book.id}) }}">En savoir +</a>
+                                </span>
                             </p>
-                            </div>
+                        </div>
                     </div>
                 </div>
             {% endfor %}
