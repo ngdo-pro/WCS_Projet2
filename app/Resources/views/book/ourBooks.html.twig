@@ -4,7 +4,7 @@
 {% endblock %}
 {% block body %}
     <div class="container">
-        <table class="bookArray col-md-8 col-md-offset-2">
+        <table class="bookArray col-md-10 col-md-offset-1">
             {% for book in books %}
                 <tr class="row">
                     <td>
@@ -15,10 +15,10 @@
                     <td>
                         <div class="celDescri">
                             <div class="row">
-                                <div class="col-xs-4 col-sm-4 bookTitle">
+                                <div class="col-xs-12 col-sm-8 bookTitle">
                                     <h2>{{ book.title }}</h2>
                                 </div>
-                                <div class="col-sm-offset-4 col-xs-6 col-xs-offset-2 col-sm-4 relDate">
+                                <div class="col-xs-6 col-xs-offset-6 col-sm-4 relDate">
                                     <p>{{ book.releaseDate|date('d/m/Y', 'Europe/Paris') }}</p>
                                 </div>
 
