@@ -91,6 +91,7 @@
     background-color: inherit;
 }
 
+
 @media only screen and (max-width: 767px) {
     .navbar-brand img {
         height: 60px;
@@ -122,15 +123,35 @@
     }
 }
 
+.resizeImg {
+    height: 60px !important;
+    width: auto !important;
+    margin-left: 10px !important;
+    margin-bottom: 10px !important;
+}
+
+
+.navbar-default.resizeBackground:before {
+    background: none;
+}
+
+.resizeLink {
+    font-size: 12px !important;
+}
+
+.resizeLinkBar{
+    padding-top: 20px;
+}
+
 /* footer */
 
 
 footer {
-    -webkit-box-shadow: 0px -1px 5px #ededed;
-    -moz-box-shadow: 0px -1px 5px #ededed;
-    box-shadow: 0px -1px 5px #ededed;
+    -webkit-box-shadow: 0 -1px 5px #ededed;
+    -moz-box-shadow: 0 -1px 5px #ededed;
+    box-shadow: 0 -1px 5px #ededed;
     background-color: #fff;
-    padding: 20px 0px 20px 0px;
+    padding: 20px 0;
 }
 
 .footerDiv {
