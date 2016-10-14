@@ -39,6 +39,9 @@
 .bookArray tr {
     border-bottom: solid black 1px;
 }
+.bookArray td {
+    padding: 10px 0px;
+}
 
 .bookArray tr:last-child {
     border-bottom: none;
