@@ -1,6 +1,6 @@
 book_editor_book:
     resource: "@BookEditorBundle/Resources/config/routing/book.yml"
-    prefix:   /book
+    prefix:   /
 
 book_editor_homepage:
     path:     /
