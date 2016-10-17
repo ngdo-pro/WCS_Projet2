@@ -1,73 +1,100 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}RDM-Editions{% endblock %}</title>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link
-                rel="stylesheet"
-                href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-                integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-                crossorigin="anonymous"
-        >
-        <link
-                href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"
-                rel="stylesheet"
-                integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1"
-                crossorigin="anonymous"
-        >
-        <link rel="stylesheet" href="{{ asset('css/bootstrap-social.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/master.css') }}">
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
+<head>
+    <meta charset="UTF-8"/>
+    <title>{% block title %}RDM-Editions{% endblock %}</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link
+            rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+            integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+            crossorigin="anonymous"
+    >
+    <link
+            href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"
+            rel="stylesheet"
+            integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1"
+            crossorigin="anonymous"
+    >
+    <link rel="stylesheet" href="{{ asset('css/bootstrap-social.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/master.css') }}">
+    {% block stylesheets %}{% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar"
+                        aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{{ path('book_index') }}">
+                    <img src="{{ asset("img/logo.jpg") }}" class="img-responsive">
+                </a>
+            </div>
 
-        <nav class="navbar navbar-default navbar-fixed-top">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar" aria-expanded="false">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="{{ path('book_index') }}">
-                        <img src="{{ asset("img/logo.jpg") }}" class="img-responsive">
-                    </a>
-                </div>
-                <div class="collapse navbar-collapse" id="main-navbar">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="active"><a href="{{ path('book_index') }}">Accueil<span class="sr-only">(current)</span></a></li>
+            <div class="collapse navbar-collapse navbar-right" id="main-navbar">
+                <div>
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="{{ path('book_index') }}">Accueil<span
+                                        class="sr-only">(current)</span></a>
+                        </li>
                         <li><a href="{{ path('book_ourBooks') }}">Nos livres</a></li>
                         <li><a href="{{ path('book_aboutUs') }}">Être édité</a></li>
                     </ul>
                 </div>
             </div>
-        </nav>
-        <div id="content">
-        {% block body %}{% endblock %}
         </div>
+        <div id="social_btn">
+            <a class="btn btn-social-icon btn-twitter">
+                <span class="fa fa-twitter"></span>
+            </a>
+            <a class="btn btn-social-icon btn-facebook">
+                <span class="fa fa-facebook"></span>
+            </a>
+            <a class="btn btn-social-icon btn-instagram">
+                <span class="fa fa-instagram"></span>
+            </a>
+            <a class="btn btn-social-icon btn-linkedin">
+                <span class="fa fa-linkedin"></span>
+            </a>
+            <a class="btn btn-social-icon btn-google">
+                <span class="fa fa-google"></span>
+            </a>
+            <a class="btn btn-social-icon btn-openid">
+                <span class="fa fa-viadeo"></span>
+            </a>
+        </div>
+    </nav>
+</header>
+<div id="content">
+    {% block body %}{% endblock %}
+</div>
 
-        <footer class="container-fluid">
-            <div class="row">
-                <div class="footerDiv col-xs-12 col-md-4">
-                    <a href="{{ path('book_aboutUs') }}">Contact</a>
-                </div>
-                <div class="footerDiv col-md-offset-4 col-xs-12 col-md-4">
-                    <a href="{{ path('book_index') }}">Mentions Légales</a>
-                </div>
-            </div>
-        </footer>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-        <script
-                src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-                crossorigin="anonymous">
-        </script>
+<footer class="container-fluid">
+    <div class="row">
+        <div class="footerDiv col-xs-12 col-md-4">
+            <a href="{{ path('book_aboutUs') }}">Contact</a>
+        </div>
+        <div class="footerDiv col-md-offset-4 col-xs-12 col-md-4">
+            <a href="{{ path('book_index') }}">Mentions Légales</a>
+        </div>
+    </div>
+</footer>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script
+        src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous">
+</script>
 
-        {% block javascripts %}{% endblock %}
-        <script src="{{ asset('js/navbarResize.js') }}"></script>
-    </body>
+{% block javascripts %}{% endblock %}
+<script src="{{ asset('js/navbarResize.js') }}"></script>
+</body>
 </html>
