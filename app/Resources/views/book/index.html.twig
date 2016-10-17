@@ -47,28 +47,8 @@
             <span class="sr-only">Next</span>
         </a>
     </div>
-    <!-- block book -
-    <h3 class="title_publish container">Récemment publiés</h3>
-    <div class="container container_block_books">
+    <!-- block book -->
 
-        {% for book in books %}
-            <div class="block_books vertical_center_block col-xs-12 col-sm-6 col-md-4">
-                <div class="block_img center-block col-xs-6 col-sm-12 col-md-12">
-                    <img class="img_book" src="{{ asset('uploads/img/covers/' ~ book.imageUrl) }}" alt="{{ book.title }}"/>
-                </div>
-
-                <div class="block_text center-block col-xs-6 col-sm-12 col-md-12">
-                    <h2>{{ book.title }}</h2>
-                    <h3>{{ book.author }}</h3>
-                    <p class="text_intro">{{ book.description[:50] }} ...</p>
-                    <a class="btn_more" href=""> En savoir + </a>
-                </div>
-            </div>
-        {% endfor %}
-    </div>
-     end block book -->
-
-    <!-- block book test -->
     <h3 class="title_publish container">Récemment publiés</h3>
     <div class="container no-padding container_block_books">
         <div class="row no-padding">
@@ -78,12 +58,10 @@
                     <div class="block_img text-center col-md-12 col-sm-12 col-xs-4">
                         <img class="img_book" src="{{ asset('uploads/img/covers/' ~ book.imageUrl) }}" alt="{{ book.title }}"/>
                     </div>
-
                     <div class="block_text col-xs-8 col-md-12 col-sm-12">
                         <h2>{{ book.title }}</h2>
                         <h3>{{ book.author }}</h3>
                         <p class="text_intro">{{ book.description[:50] }} ...</p>
-
                     </div>
                 </div>
                 <div class="block_btn ">
@@ -93,7 +71,7 @@
         {% endfor %}
         </div>
     </div>
-    <!-- block book test -->
+    <!-- end block book -->
 
 {% endblock %}
 {% block javascripts %}
