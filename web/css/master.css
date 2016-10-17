@@ -1,5 +1,5 @@
 #content {
-    padding-top: 259px;
+    padding-top: 229px;
 }
 
 /* header */
@@ -107,16 +107,27 @@
 }
 
 #social_btn {
-    display: flex;
-    justify-content: center;
-    padding: 3px 0px;
-    background-color: #898989;
-    margin: 0;
+    position: fixed;
+    right: 0;
+    top: 30%;
+    padding: 0px 3px;
+    /*background-color: #898989;*/
     border: none;
+    width: 51px;
+    z-index: 1;
+    text-align: center;
 }
 
-#social_btn a{
-    margin: 0px 5px;
+#social_btn img{
+    height: 40px;
+    width: auto;
+    margin: 3px 0px;
+}
+
+#social_btn a:hover img{
+    height: 46px;
+    width: auto;
+    margin: 0;
 }
 
 @media only screen and (max-width: 767px) {
