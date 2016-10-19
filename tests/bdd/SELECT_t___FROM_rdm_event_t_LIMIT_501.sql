@@ -1,0 +1,3 @@
+INSERT INTO rdm.event (title, description, date_start, date_end) VALUES ('Dédicaces', 'Les 19 et 20 octobre, une scéance de dédicace aura lieu à telle heure à tel endroit', '2016-10-19 14:49:08', '2016-10-20 14:49:12');
+INSERT INTO rdm.event (title, description, date_start, date_end) VALUES ('Rencontre', 'Les 13 et 14 octobre, rencontre avec tel auteur à tel endroit', '2016-10-13 14:49:52', '2016-10-14 14:50:00');
+INSERT INTO rdm.event (title, description, date_start, date_end) VALUES ('Salon du livre', 'Le 30 octobre, salon du livre !', '2016-10-25 14:50:41', '2016-10-31 14:50:47');

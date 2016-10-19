@@ -1,0 +1,21 @@
+BookEditorBundle\Entity\Event:
+    type: entity
+    table: null
+    repositoryClass: BookEditorBundle\Repository\EventRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        title:
+            type: string
+            length: 255
+        description:
+            type: text
+        dateStart:
+            type: datetime
+        dateEnd:
+            type: datetime
+    lifecycleCallbacks: {  }

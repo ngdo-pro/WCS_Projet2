@@ -57,7 +57,8 @@
 }
 
 .carousel-indicators{
-    left: 90%;
+    left: 105%;
+    width: 15%
 }
 
 .carousel-indicators li{
