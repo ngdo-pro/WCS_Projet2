@@ -48,6 +48,21 @@
             <span class="sr-only">Next</span>
         </a>
     </div>
+    <!-- block event -->
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-3">évènements</div>
+            <div class="col-xs-9">
+                <ul>
+                    {% for event in events %}
+                        <li>{{ event.description }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
     <!-- block book -->
 
     <h3 class="title_publish container">Récemment publiés</h3>
