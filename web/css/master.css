@@ -129,6 +129,9 @@
     width: auto;
     margin: 0;
 }
+#social_btn a:focus{
+    outline:none;
+}
 
 @media only screen and (max-width: 767px) {
     .navbar-brand img {
@@ -150,6 +153,9 @@
 
     #content {
         padding-top: 100px;
+    }
+    #social_btn{
+        
     }
 }
 
