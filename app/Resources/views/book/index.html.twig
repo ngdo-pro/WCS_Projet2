@@ -55,9 +55,8 @@
             <div class="col-xs-7 col-sm-10 content-event">
                 <ul>
                     {% for event in events %}
-                        <li>
-                            {{ event.description }}
-                        </li>
+                        <li class="event-title">{{ event.title }}</li>
+                        <li>{{ event.description }}</li>
                     {% endfor %}
                 </ul>
             </div>
