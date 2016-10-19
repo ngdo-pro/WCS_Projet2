@@ -135,20 +135,34 @@
     outline: none;
 }
 
+#social_btn_xs #link{
+    display: inline-block;
+    background-color: #5d1c43;
+}
+
 #social_btn_xs {
-    background-color: #5D1C43;
     position: fixed;
     right: 0;
     bottom: 17%;
     margin: 0;
-    padding-left: 20px;
     z-index: 1;
-
 }
+
 #social_btn_xs img {
-    height: 35px;
+    height: 36px;
     width: auto;
     margin: 4px;
+}
+
+#social_btn_xs #fb img {
+    margin-left: 0;
+    padding-left: 0;
+}
+
+#social_btn_xs #bande {
+    height: 44px;
+    width: auto;
+    margin: 0;
 }
 
 @media only screen and (max-width: 767px) {
