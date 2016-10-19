@@ -111,7 +111,7 @@
 }
 
 @media only screen and (min-width: 768px) {
-    ul {
+    .navbar-nav {
         padding-right: 30px;
         padding-top: 100px;
     }
