@@ -31,7 +31,6 @@ class BookController extends Controller
         $em->getRepository('BookEditorBundle:Event')->deletePastEvents($em);
 
         $events = $em->getRepository('BookEditorBundle:Event')->findEnabledEvents($em);
-
         return $this->render('book/index.html.twig', array(
             'books' => $books,
             'carouselBooks' => $carouselBooks,
