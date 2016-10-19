@@ -2,10 +2,12 @@
 
 namespace BookEditorBundle\Controller;
 
+use Doctrine\ORM\EntityManager;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use BookEditorBundle\Entity\Book;
+use BookEditorBundle\Entity\Event;
 use BookEditorBundle\Form\BookType;
 use Symfony\Component\Validator\Constraints\Date;
 use Symfony\Component\Validator\Constraints\DateTime;
@@ -23,21 +25,13 @@ class BookController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-
         $books = $em->getRepository('BookEditorBundle:Book')->findAll();
         $carouselBooks = $em->getRepository('BookEditorBundle:Book')->findTheLastThree();
-        $events = $em->getRepository('BookEditorBundle:Event')->findAll();
 
-        //if eventDate is prior to currentDate, add the event id to pastDates
-        $currentDate = new \DateTime('now');
-        foreach ($events as $event){
-            if($currentDate->diff($event->getDateEnd())->invert == 1){
-                $em->remove($event);
-            }
-        }
-        $em->flush();
+        $em->getRepository('BookEditorBundle:Event')->deletePastEvents($em);
 
-        $events = $em->getRepository('BookEditorBundle:Event')->findAll();
+        $events = $em->getRepository('BookEditorBundle:Event')->findEnabledEvents($em);
+
         return $this->render('book/index.html.twig', array(
             'books' => $books,
             'carouselBooks' => $carouselBooks,
