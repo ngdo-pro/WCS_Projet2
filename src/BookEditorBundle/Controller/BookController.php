@@ -7,6 +7,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use BookEditorBundle\Entity\Book;
 use BookEditorBundle\Form\BookType;
+use Symfony\Component\Validator\Constraints\Date;
+use Symfony\Component\Validator\Constraints\DateTime;
 
 /**
  * Book controller.
@@ -26,6 +28,16 @@ class BookController extends Controller
         $carouselBooks = $em->getRepository('BookEditorBundle:Book')->findTheLastThree();
         $events = $em->getRepository('BookEditorBundle:Event')->findAll();
 
+        //if eventDate is prior to currentDate, add the event id to pastDates
+        $currentDate = new \DateTime('now');
+        foreach ($events as $event){
+            if($currentDate->diff($event->getDateEnd())->invert == 1){
+                $em->remove($event);
+            }
+        }
+        $em->flush();
+
+        $events = $em->getRepository('BookEditorBundle:Event')->findAll();
         return $this->render('book/index.html.twig', array(
             'books' => $books,
             'carouselBooks' => $carouselBooks,

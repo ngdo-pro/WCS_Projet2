@@ -12,4 +12,13 @@ use Doctrine\ORM\EntityRepository;
  */
 class EventRepository extends EntityRepository
 {
+    public function deleteEvent($events){
+        foreach($events as $event){
+            $query = $this->createQueryBuilder('q')
+                ->setMaxResults(3)
+                ->getQuery();
+            return $query->getResult();
+        }
+
+    }
 }

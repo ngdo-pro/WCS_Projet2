@@ -49,13 +49,15 @@
         </a>
     </div>
     <!-- block event -->
-    <div class="container">
+    <div class="container event">
         <div class="row">
-            <div class="col-xs-3">évènements</div>
-            <div class="col-xs-9">
+            <div class="col-xs-5 col-sm-2 title-event">évènements</div>
+            <div class="col-xs-7 col-sm-10 content-event">
                 <ul>
                     {% for event in events %}
-                        <li>{{ event.description }}</li>
+                        <li>
+                            {{ event.description }}
+                        </li>
                     {% endfor %}
                 </ul>
             </div>
