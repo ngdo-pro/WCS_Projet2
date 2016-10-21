@@ -38,6 +38,11 @@ class BookController extends Controller
         ));
     }
 
+    public function legalNoticeAction()
+    {
+        return $this->render('book/legalNotice.html.twig');
+    }
+
     public function ourBooksAction()
     {
         $em = $this->getDoctrine()->getManager();
