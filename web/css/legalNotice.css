@@ -9,6 +9,7 @@
 
 #legalNotice h1, #legalNotice h2 {
     margin-top: 30px;
+    text-align: left;
 }
 
 #legalNotice h2 {
