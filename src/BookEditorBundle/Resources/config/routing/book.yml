@@ -38,3 +38,7 @@ book_aboutUs:
     defaults: { _controller: "BookEditorBundle:Book:aboutUs" }
     methods:  GET
 
+book_legalNotice:
+    path:     /mentions-legales
+    defaults: { _controller: "BookEditorBundle:Book:legalNotice" }
+    methods:  GET
