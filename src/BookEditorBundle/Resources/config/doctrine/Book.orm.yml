@@ -22,11 +22,9 @@ BookEditorBundle\Entity\Book:
             type: string
             length: 255
             nullable: true
-            unique: true
         imageUrl:
             type: string
             length: 255
-            unique: true
         pressTitle:
             type: string
             length: 255
@@ -35,11 +33,14 @@ BookEditorBundle\Entity\Book:
             type: string
             length: 255
             nullable: true
-            unique: true
         releaseDate:
-            type: datetime
+            type: date
         purchaseOrderImageUrl:
             type: string
             length: 255
             nullable: true
+        slug:
+            type: string
+            length: 255
+            unique: true
     lifecycleCallbacks: {  }
