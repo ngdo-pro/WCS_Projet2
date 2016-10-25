@@ -10,3 +10,14 @@ _sonata_admin:
     resource: .
     type: sonata_admin
     prefix: /admin
+
+login:
+    path: /login
+    defaults:
+        _controller: BookEditorBundle:Security:login
+
+login_check:
+    path: /login_check
+
+logout:
+    path: /logout
