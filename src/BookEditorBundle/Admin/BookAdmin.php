@@ -40,8 +40,8 @@ class BookAdmin extends AbstractAdmin
                 'label' => 'Image de l\'article de presse',
                 'required' => false
             ))
-            ->add('releaseDate', 'date', array(
-                'label' => 'Date de publication',
+            ->add('releaseDate', 'date',array(
+                'years' => range(date('Y') + 4, date('Y') - 16), 'label' => 'Date de publication',
                 'required' => true
             ))
             ->add('purchaseOrderImageUrl', 'file', array(
