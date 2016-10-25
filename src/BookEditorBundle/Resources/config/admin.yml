@@ -1,0 +1,17 @@
+services:
+    app.admin.book:
+        class: BookEditorBundle\Admin\BookAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "RDM", label: "Livre" }
+        arguments:
+            - ~
+            - BookEditorBundle\Entity\Book
+            - ~
+    app.admin.event:
+        class: BookEditorBundle\Admin\EventAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "RDM", label: "évènement" }
+        arguments:
+            - ~
+            - BookEditorBundle\Entity\Event
+            - ~
