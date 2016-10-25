@@ -82,3 +82,8 @@ sonata_block:
 
 sonata_admin:
     title:      RDM-Éditions
+
+ivory_ck_editor:
+    default_config: my_config
+    configs:
+        my_config:
