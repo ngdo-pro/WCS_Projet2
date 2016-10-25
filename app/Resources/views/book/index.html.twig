@@ -80,7 +80,7 @@
                     <div class="block_text col-xs-8 col-md-12 col-sm-12">
                         <h2>{{ book.title }}</h2>
                         <h3>{{ book.author }}</h3>
-                        <p class="text_intro">{{ book.description[:50] }} ...</p>
+                        <p class="text_intro">{{ book.description[:50]|raw }} ...</p>
                     </div>
                 </div>
                 <div class="block_btn ">

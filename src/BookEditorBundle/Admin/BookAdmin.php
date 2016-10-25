@@ -20,9 +20,9 @@ class BookAdmin extends AbstractAdmin
                 'label' => 'Auteur',
                 'required' => true
             ))
-            ->add('description', 'text', array(
-                'label' => 'Description',
-                'required' => true
+            ->add('description', 'ckeditor', array(
+                'config_name' => 'my_config',
+                'config'      => array('uiColor' => '#ffffff'),
             ))
             ->add('facebookLinkUrl', 'text', array(
                 'label' => 'Lien vers la page Facebook',
