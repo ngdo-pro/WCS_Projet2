@@ -22,7 +22,7 @@ class BookAdmin extends AbstractAdmin
             ))
             ->add('description', 'ckeditor', array(
                 'config_name' => 'my_config',
-                'config'      => array('uiColor' => '#ffffff'),
+                'config'      => array('uiColor' => '#ffffff', 'language' => 'fr')
             ))
             ->add('facebookLinkUrl', 'text', array(
                 'label' => 'Lien vers la page Facebook',
