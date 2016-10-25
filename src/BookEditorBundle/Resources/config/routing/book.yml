@@ -3,33 +3,13 @@ book_index:
     defaults: { _controller: "BookEditorBundle:Book:index" }
     methods:  GET
 
-book_show:
-    path:     /{id}/show
-    defaults: { _controller: "BookEditorBundle:Book:show" }
-    methods:  GET
-
-book_new:
-    path:     /new
-    defaults: { _controller: "BookEditorBundle:Book:new" }
-    methods:  [GET, POST]
-
-book_edit:
-    path:     /{id}/edit
-    defaults: { _controller: "BookEditorBundle:Book:edit" }
-    methods:  [GET, POST]
-
-book_delete:
-    path:     /{id}/delete
-    defaults: { _controller: "BookEditorBundle:Book:delete" }
-    methods:  DELETE
-
 book_ourBooks:
     path:     /nos-livres
     defaults: { _controller: "BookEditorBundle:Book:ourBooks" }
     methods:  GET
 
 book_showToPublic:
-    path:     /livre/{id}
+    path:     /livre/{slug}
     defaults: { _controller: "BookEditorBundle:Book:showToPublic" }
     methods:  GET
 

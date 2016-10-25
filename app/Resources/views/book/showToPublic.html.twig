@@ -47,10 +47,11 @@
             </table>
         </div>
         <div class="col-md-8">
-            <a href="{{ book.facebookLinkUrl }}">Facebook</a>
+            <a href="{{ book.facebookLinkUrl }}" target="_blank">Facebook</a>
         </div>
     </div>
 </section>
+{% if book.pressTitle %}
 <div class="container">
     <hr>
 </div>
@@ -83,4 +84,5 @@
         </div>
     </div>
 </section>
+{% endif %}
 {% endblock %}
