@@ -16,8 +16,5 @@ login:
     defaults:
         _controller: BookEditorBundle:Security:login
 
-login_check:
-    path: /login_check
-
 logout:
     path: /logout
