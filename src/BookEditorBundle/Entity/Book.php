@@ -428,6 +428,10 @@ class Book
                     return;
                 }
                 $path = self::SERVER_PATH_TO_PRESS_IMAGE_FOLDER;
+                if ($this->pressImageUrl != NULL){
+                    $fs = new Filesystem();
+                    $fs->remove($path.$this->pressImageUrl);
+                }
                 $this->uploadOneFile($path, $getFile);
                 $this->pressImageUrl = $getFile->getClientOriginalName();
                 $this->setPressImg(null);
@@ -438,6 +442,10 @@ class Book
                     return;
                 }
                 $path = self::SERVER_PATH_TO_PURCHASE_ORDER_IMAGE_FOLDER;
+                if ($this->purchaseOrderImageUrl != NULL){
+                    $fs = new Filesystem();
+                    $fs->remove($path.$this->purchaseOrderImageUrl);
+                }
                 $this->uploadOneFile($path, $getFile);
                 $this->purchaseOrderImageUrl = $getFile->getClientOriginalName();
                 $this->setPurchaseOrderImg(null);
