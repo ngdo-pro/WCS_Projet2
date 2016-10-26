@@ -335,8 +335,13 @@ class Book
         return $this->pressArticles;
     }
 
+    /**
+     *  path to cover images upload directory
+     */
     const SERVER_PATH_TO_COVER_IMAGE_FOLDER = "../web/uploads/img/covers/";
-    const SERVER_PATH_TO_PRESS_IMAGE_FOLDER = "../web/uploads/img/pressArticle/";
+    /**
+     *  path to purchase order images upload directory
+     */
     const SERVER_PATH_TO_PURCHASE_ORDER_IMAGE_FOLDER = "../web/uploads/img/purchaseOrder/";
     /**
      * Unmapped property to handle coverImg uploads
@@ -377,6 +382,10 @@ class Book
     }
 
 
+    /**
+     * @param $path
+     * @param UploadedFile $getFile
+     */
     private function uploadOneFile($path, UploadedFile $getFile){
         $getFile->move(
             $path,
@@ -419,11 +428,16 @@ class Book
                 $this->setPurchaseOrderImg(null);
         }
     }
+
+    /**
+     *
+     */
     public function lifecycleFileUpload()
     {
         $this->upload('coverImg');
         $this->upload('purchaseOrderImg');
     }
+
     /**
      * Updates the hash value to force the preUpdate and postUpdate events to fire
      */
