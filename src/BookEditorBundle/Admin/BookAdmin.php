@@ -34,14 +34,6 @@ class BookAdmin extends AbstractAdmin
                 'label' => 'Image de la couverture',
                 'required' => true
             ))
-            ->add('pressTitle', 'text', array(
-                'label' => 'Titre de l\'article de presse',
-                'required' => false
-            ))
-            ->add('pressImg', 'file', array(
-                'label' => 'Image de l\'article de presse',
-                'required' => false
-            ))
             ->add('releaseDate', 'date',array(
                 'years' => range(2000, 2020),
                 'format' => 'ddMMyyyy',
@@ -94,7 +86,7 @@ class BookAdmin extends AbstractAdmin
 
     private function manageFileUpload(Book $image)
     {
-        if ($image->getCoverImg() || $image->getPressImg() || $image->getPurchaseOrderImg()) {
+        if ($image->getCoverImg() || $image->getPurchaseOrderImg()) {
             $image->refreshuploaded();
         }
     }
