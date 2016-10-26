@@ -24,7 +24,7 @@
 
                             </div>
                             <div class="tableDescri">
-                                <p>{{ book.description[:200] }}...</p><br/>
+                                <p>{{ book.description[:200]|raw }}...</p><br/>
                             </div>
                             <div class="row">
                                 <a class="btn_more" href="{{ path('book_showToPublic', { 'slug': book.slug }) }}">En Savoir
