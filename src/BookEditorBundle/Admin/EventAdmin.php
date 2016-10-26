@@ -16,9 +16,9 @@ class EventAdmin extends AbstractAdmin
                 'label' => 'Titre',
                 'required' => true
             ))
-            ->add('description', 'text', array(
-                'label' => 'Description',
-                'required' => true
+            ->add('description', 'ckeditor', array(
+                'config_name' => 'my_config',
+                'config'      => array('uiColor' => '#ffffff'),
             ))
             ->add('dateStart', 'date', array(
                 'label' => 'Date de début de publication de l\'évènement',

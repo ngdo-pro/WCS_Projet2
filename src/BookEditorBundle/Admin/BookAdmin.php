@@ -2,6 +2,7 @@
 namespace BookEditorBundle\Admin;
 
 
+use BookEditorBundle\Entity\Book;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
@@ -20,15 +21,16 @@ class BookAdmin extends AbstractAdmin
                 'label' => 'Auteur',
                 'required' => true
             ))
-            ->add('description', 'text', array(
+            ->add('description', 'ckeditor', array(
+                'config_name' => 'my_config',
                 'label' => 'Description',
-                'required' => true
+                'config'      => array('uiColor' => '#ffffff', 'language' => 'fr')
             ))
             ->add('facebookLinkUrl', 'text', array(
                 'label' => 'Lien vers la page Facebook',
                 'required' => false
             ))
-            ->add('imageUrl', 'file', array(
+            ->add('coverImg', 'file', array(
                 'label' => 'Image de la couverture',
                 'required' => true
             ))
@@ -36,15 +38,17 @@ class BookAdmin extends AbstractAdmin
                 'label' => 'Titre de l\'article de presse',
                 'required' => false
             ))
-            ->add('pressImageUrl', 'file', array(
+            ->add('pressImg', 'file', array(
                 'label' => 'Image de l\'article de presse',
                 'required' => false
             ))
-            ->add('releaseDate', 'date', array(
+            ->add('releaseDate', 'date',array(
+                'years' => range(2000, 2020),
+                'format' => 'ddMMyyyy',
                 'label' => 'Date de publication',
                 'required' => true
             ))
-            ->add('purchaseOrderImageUrl', 'file', array(
+            ->add('purchaseOrderImg', 'file', array(
                 'label' => 'Bon de commande',
                 'required' => false
             ))
@@ -60,7 +64,9 @@ class BookAdmin extends AbstractAdmin
     {
         $datagridMapper
             ->add('title')
-            ->add('description')
+            ->add('author')
+            ->add('releaseDate')
+
         ;
     }
 
@@ -69,8 +75,28 @@ class BookAdmin extends AbstractAdmin
     {
         $listMapper
             ->addIdentifier('title')
+            ->add('author')
             ->add('description')
+            ->add('imageUrl')
+            ->add('releaseDate')
         ;
+    }
+
+    public function prePersist($image)
+    {
+        $this->manageFileUpload($image);
+    }
+
+    public function preUpdate($image)
+    {
+        $this->manageFileUpload($image);
+    }
+
+    private function manageFileUpload(Book $image)
+    {
+        if ($image->getCoverImg() || $image->getPressImg() || $image->getPurchaseOrderImg()) {
+            $image->refreshuploaded();
+        }
     }
 
 }

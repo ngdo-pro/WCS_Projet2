@@ -3,6 +3,8 @@
 namespace BookEditorBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Filesystem\Filesystem;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * Book
@@ -305,4 +307,164 @@ class Book
     {
         return $this->slug;
     }
+
+
+    const SERVER_PATH_TO_COVER_IMAGE_FOLDER = "../web/uploads/img/covers/";
+    const SERVER_PATH_TO_PRESS_IMAGE_FOLDER = "../web/uploads/img/pressArticle/";
+    const SERVER_PATH_TO_PURCHASE_ORDER_IMAGE_FOLDER = "../web/uploads/img/purchaseOrder/";
+    /**
+     * Unmapped property to handle coverImg uploads
+     */
+    private $coverImg;
+    /**
+     * Unmapped property to handle purchaseOrderImg uploads
+     */
+    private $purchaseOrderImg;
+    /**
+     * Unmapped property to handle pressImg uploads
+     */
+    private $pressImg;
+
+    /**
+     * @var \DateTime
+     */
+    private $uploaded;
+
+    /**
+     * @return \DateTime
+     */
+    public function getuploaded()
+    {
+        return $this->uploaded;
+    }
+
+    /**
+     * @param \DateTime $uploaded
+     */
+    public function setUploaded($uploaded)
+    {
+        $this->uploaded = $uploaded;
+    }
+
+    /**
+     * @return UploadedFile
+     */
+    public function getCoverImg()
+    {
+        return $this->coverImg;
+    }
+
+    /**
+     * @param UploadedFile $coverImg
+     */
+    public function setCoverImg(UploadedFile $coverImg = null)
+    {
+        $this->coverImg = $coverImg;
+    }
+
+    /**
+     * @return UploadedFile
+     */
+    public function getPurchaseOrderImg()
+    {
+        return $this->purchaseOrderImg;
+    }
+
+    /**
+     * @param UploadedFile $purchaseOrderImg
+     */
+    public function setPurchaseOrderImg(UploadedFile $purchaseOrderImg = null)
+    {
+        $this->purchaseOrderImg = $purchaseOrderImg;
+    }
+
+    /**
+     * @return UploadedFile
+     */
+    public function getPressImg()
+    {
+        return $this->pressImg;
+    }
+
+    /**
+     * @param UploadedFile $pressImg
+     */
+    public function setPressImg(UploadedFile $pressImg = null)
+    {
+        $this->pressImg = $pressImg;
+    }
+
+    private function uploadOneFile($path, UploadedFile $getFile){
+        $getFile->move(
+            $path,
+            $getFile->getClientOriginalName()
+        );
+    }
+
+    /**
+     * @param string $filename
+     * Manages the copying of the file to the relevant place on the server
+     */
+    public function upload($filename)
+    {
+        switch ($filename){
+            case 'coverImg':
+                $getFile = $this->getCoverImg();
+                if (null === $getFile) {
+                    return;
+                }
+                $path = self::SERVER_PATH_TO_COVER_IMAGE_FOLDER;
+                if ($this->imageUrl != NULL){
+                    $fs = new Filesystem();
+                    $fs->remove($path.$this->imageUrl);
+                }
+                $this->uploadOneFile($path, $getFile);
+                $this->imageUrl = $getFile->getClientOriginalName();
+                $this->setCoverImg(null);
+                break;
+            case 'pressImg':
+                $getFile = $this->getPressImg();
+                if (null === $getFile) {
+                    return;
+                }
+                $path = self::SERVER_PATH_TO_PRESS_IMAGE_FOLDER;
+                if ($this->pressImageUrl != NULL){
+                    $fs = new Filesystem();
+                    $fs->remove($path.$this->pressImageUrl);
+                }
+                $this->uploadOneFile($path, $getFile);
+                $this->pressImageUrl = $getFile->getClientOriginalName();
+                $this->setPressImg(null);
+                break;
+            default:
+                $getFile = $this->getPurchaseOrderImg();
+                if (null === $getFile) {
+                    return;
+                }
+                $path = self::SERVER_PATH_TO_PURCHASE_ORDER_IMAGE_FOLDER;
+                if ($this->purchaseOrderImageUrl != NULL){
+                    $fs = new Filesystem();
+                    $fs->remove($path.$this->purchaseOrderImageUrl);
+                }
+                $this->uploadOneFile($path, $getFile);
+                $this->purchaseOrderImageUrl = $getFile->getClientOriginalName();
+                $this->setPurchaseOrderImg(null);
+        }
+    }
+
+    public function lifecycleFileUpload()
+    {
+        $this->upload('coverImg');
+        $this->upload('pressImg');
+        $this->upload('purchaseOrderImg');
+    }
+
+    /**
+     * Updates the hash value to force the preUpdate and postUpdate events to fire
+     */
+    public function refreshuploaded()
+    {
+        $this->setUploaded(new \DateTime());
+    }
+
 }

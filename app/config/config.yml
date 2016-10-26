@@ -8,7 +8,7 @@ imports:
 # Put parameters here that don't need to change on each machine where the app is deployed
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
-    locale: en
+    locale: fr
     covers_directory: '%kernel.root_dir%/../web/uploads/img/covers'
     pressArticle_directory: '%kernel.root_dir%/../web/uploads/img/pressArticle'
     purchaseOrder_directory: '%kernel.root_dir%/../web/uploads/img/purchaseOrder'
@@ -84,3 +84,10 @@ sonata_admin:
     title:      RDM-Éditions
     templates:
         user_block: '%kernel.root_dir%/Resources/views/book/custom_user_menu.html.twig'
+
+ivory_ck_editor:
+    default_config: my_config
+    configs:
+        my_config:
+            toolbar: standard
+            language: fr
