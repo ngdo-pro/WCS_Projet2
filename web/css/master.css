@@ -17,7 +17,7 @@
     height: 170px;
     margin-left: 40px;
     margin-bottom: 28px;
-    transition: 0.2s ease;
+    transition: 0.3s ease;
 }
 
 .navbar-default .navbar-nav > li > a {
@@ -56,18 +56,18 @@
     background: -webkit-gradient(linear, left top, right bottom, from(rgba(0, 0, 0, 0)), to(rgba(255, 255, 255, 1))), url(../img/ville.jpg) 0 -20px no-repeat;
     opacity: .10;
     z-index: -1;
-    transition: 0.2s ease;
+    transition: 0.3s ease;
 }
 
 .navbar-nav {
     margin-top: auto !important;
     margin-bottom: auto !important;
-    transition: 0.2s ease;
+    transition: 0.3s ease;
 }
 
 .navbar-toggle {
     margin-top: 35px;
-    transition: 0.2s ease;
+    transition: 0.3s ease;
 }
 
 .navbar-default .navbar-toggle .icon-bar {
@@ -93,24 +93,25 @@
 .resizeImg {
     height: 60px !important;
     width: auto !important;
-    margin-left: 10px !important;
+    margin-left: 35px !important;
     margin-bottom: 10px !important;
-    transition: 0.2s ease;
+    transition: 0.3s ease;
 }
 
 .navbar-default.resizeBackground:before {
-    background: none;
-    transition: 0.2s ease;
+    height: 100px;
+    width: auto;
 }
 
 .resizeLink {
-    font-size: 12px !important;
-    transition: 0.2s ease;
+    font-size: 16px !important;
+    min-height: 30px;
+    transition: 0.3s ease;
 }
 
 .resizeLinkBar {
     padding-top: 20px;
-    transition: 0.2s ease;
+    transition: 0.3s ease;
 }
 
 /* Social Buttons */
