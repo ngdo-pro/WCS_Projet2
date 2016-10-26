@@ -43,4 +43,9 @@ BookEditorBundle\Entity\Book:
             type: string
             length: 255
             unique: true
-    lifecycleCallbacks: {  }
+        uploaded:
+            type: datetime
+            nullable: true
+    lifecycleCallbacks:
+        prePersist:   [ lifecycleFileUpload ]
+        preUpdate:    [ lifecycleFileUpload ]
