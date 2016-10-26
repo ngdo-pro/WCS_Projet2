@@ -101,6 +101,8 @@
 .navbar-default.resizeBackground:before {
     height: 100px;
     width: auto;
+    opacity: .5 ;
+    transition: width 2s linear 1s;
 }
 
 .resizeLink {
