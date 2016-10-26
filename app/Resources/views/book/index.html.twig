@@ -57,7 +57,7 @@
                 <ul>
                     {% for event in events %}
                         <li class="event-title">{{ event.title }}</li>
-                        <li>{{ event.description }}</li>
+                        <li>{{ event.description|raw }}</li>
                     {% endfor %}
                 </ul>
             </div>
