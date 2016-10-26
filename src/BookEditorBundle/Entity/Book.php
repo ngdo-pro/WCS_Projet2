@@ -3,6 +3,7 @@
 namespace BookEditorBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * Book
@@ -305,4 +306,68 @@ class Book
     {
         return $this->slug;
     }
+
+    /**
+     * Unmapped property to handle coverImg uploads
+     */
+    private $coverImg;
+    /**
+     * Unmapped property to handle purchaseOrderImg uploads
+     */
+    private $purchaseOrderImg;
+    /**
+     * Unmapped property to handle pressImg uploads
+     */
+    private $pressImg;
+
+    /**
+     * @return UploadedFile
+     */
+    public function getCoverImg()
+    {
+        return $this->coverImg;
+    }
+
+    /**
+     * @param UploadedFile $coverImg
+     */
+    public function setCoverImg(UploadedFile $coverImg)
+    {
+        $this->coverImg = $coverImg;
+    }
+
+    /**
+     * @return UploadedFile
+     */
+    public function getPurchaseOrderImg()
+    {
+        return $this->purchaseOrderImg;
+    }
+
+    /**
+     * @param UploadedFile $purchaseOrderImg
+     */
+    public function setPurchaseOrderImg(UploadedFile $purchaseOrderImg)
+    {
+        $this->purchaseOrderImg = $purchaseOrderImg;
+    }
+
+    /**
+     * @return UploadedFile
+     */
+    public function getPressImg()
+    {
+        return $this->pressImg;
+    }
+
+    /**
+     * @param UploadedFile $pressImg
+     */
+    public function setPressImg(UploadedFile $pressImg)
+    {
+        $this->pressImg = $pressImg;
+    }
+
+
+
 }
