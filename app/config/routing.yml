@@ -17,4 +17,4 @@ login:
         _controller: BookEditorBundle:Security:login
 
 logout:
-    path: /logout
+    path: /admin/logout

@@ -82,3 +82,5 @@ sonata_block:
 
 sonata_admin:
     title:      RDM-Éditions
+    templates:
+        user_block: '%kernel.root_dir%/Resources/views/book/custom_user_menu.html.twig'
