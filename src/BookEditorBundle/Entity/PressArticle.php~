@@ -80,33 +80,5 @@ class PressArticle
     {
         return $this->imageUrl;
     }
-    /**
-     * @var \BookEditorBundle\Entity\Book
-     */
-    private $book;
-
-
-    /**
-     * Set book
-     *
-     * @param \BookEditorBundle\Entity\Book $book
-     *
-     * @return PressArticle
-     */
-    public function setBook(\BookEditorBundle\Entity\Book $book = null)
-    {
-        $this->book = $book;
-
-        return $this;
-    }
-
-    /**
-     * Get book
-     *
-     * @return \BookEditorBundle\Entity\Book
-     */
-    public function getBook()
-    {
-        return $this->book;
-    }
 }
+

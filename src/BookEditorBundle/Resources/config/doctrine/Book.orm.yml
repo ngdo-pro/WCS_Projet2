@@ -46,6 +46,10 @@ BookEditorBundle\Entity\Book:
         uploaded:
             type: datetime
             nullable: true
+    oneToMany:
+        pressArticles:
+            targetEntity: PressArticle
+            mappedBy: book
     lifecycleCallbacks:
         prePersist:   [ lifecycleFileUpload ]
         preUpdate:    [ lifecycleFileUpload ]

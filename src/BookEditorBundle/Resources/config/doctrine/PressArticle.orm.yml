@@ -15,4 +15,11 @@ BookEditorBundle\Entity\PressArticle:
         imageUrl:
             type: string
             length: 255
+    manyToOne:
+        book:
+            targetEntity: Book
+            inversedBy: press_articles
+            joinColumn:
+                name: book_id
+                referencedColumnName: id
     lifecycleCallbacks: {  }
