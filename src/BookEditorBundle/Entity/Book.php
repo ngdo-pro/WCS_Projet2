@@ -3,6 +3,7 @@
 namespace BookEditorBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
@@ -308,9 +309,9 @@ class Book
     }
 
 
-    const SERVER_PATH_TO_COVER_IMAGE_FOLDER = "../uploads/img/covers/";
-    const SERVER_PATH_TO_PRESS_IMAGE_FOLDER = "../uploads/img/pressArticle/";
-    const SERVER_PATH_TO_PURCHASE_ORDER_IMAGE_FOLDER = "../uploads/img/purchaseOrder/";
+    const SERVER_PATH_TO_COVER_IMAGE_FOLDER = "../web/uploads/img/covers/";
+    const SERVER_PATH_TO_PRESS_IMAGE_FOLDER = "../web/uploads/img/pressArticle/";
+    const SERVER_PATH_TO_PURCHASE_ORDER_IMAGE_FOLDER = "../web/uploads/img/purchaseOrder/";
     /**
      * Unmapped property to handle coverImg uploads
      */
@@ -327,22 +328,22 @@ class Book
     /**
      * @var \DateTime
      */
-    private $updated;
+    private $uploaded;
 
     /**
      * @return \DateTime
      */
-    public function getUpdated()
+    public function getuploaded()
     {
-        return $this->updated;
+        return $this->uploaded;
     }
 
     /**
-     * @param \DateTime $updated
+     * @param \DateTime $uploaded
      */
-    public function setUpdated($updated)
+    public function setUploaded($uploaded)
     {
-        $this->updated = $updated;
+        $this->uploaded = $uploaded;
     }
 
     /**
@@ -356,7 +357,7 @@ class Book
     /**
      * @param UploadedFile $coverImg
      */
-    public function setCoverImg(UploadedFile $coverImg)
+    public function setCoverImg(UploadedFile $coverImg = null)
     {
         $this->coverImg = $coverImg;
     }
@@ -372,7 +373,7 @@ class Book
     /**
      * @param UploadedFile $purchaseOrderImg
      */
-    public function setPurchaseOrderImg(UploadedFile $purchaseOrderImg)
+    public function setPurchaseOrderImg(UploadedFile $purchaseOrderImg = null)
     {
         $this->purchaseOrderImg = $purchaseOrderImg;
     }
@@ -388,51 +389,59 @@ class Book
     /**
      * @param UploadedFile $pressImg
      */
-    public function setPressImg(UploadedFile $pressImg)
+    public function setPressImg(UploadedFile $pressImg = null)
     {
         $this->pressImg = $pressImg;
     }
 
+    private function uploadOneFile($path, UploadedFile $getFile){
+        $getFile->move(
+            $path,
+            $getFile->getClientOriginalName()
+        );
+    }
+
     /**
+     * @param string $filename
      * Manages the copying of the file to the relevant place on the server
      */
     public function upload($filename)
     {
         switch ($filename){
             case 'coverImg':
-                $getFile = getCoverImg();
-                $setFile = setCoverImg(null);
+                $getFile = $this->getCoverImg();
+                if (null === $getFile) {
+                    return;
+                }
                 $path = self::SERVER_PATH_TO_COVER_IMAGE_FOLDER;
+                if ($this->imageUrl != NULL){
+                    $fs = new Filesystem();
+                    $fs->remove($path.$this->imageUrl);
+                }
+                $this->uploadOneFile($path, $getFile);
+                $this->imageUrl = $getFile->getClientOriginalName();
+                $this->setCoverImg(null);
                 break;
             case 'pressImg':
-                $getFile = getPressImg();
-                $setFile = setPressImg(null);
+                $getFile = $this->getPressImg();
+                if (null === $getFile) {
+                    return;
+                }
                 $path = self::SERVER_PATH_TO_PRESS_IMAGE_FOLDER;
+                $this->uploadOneFile($path, $getFile);
+                $this->pressImageUrl = $getFile->getClientOriginalName();
+                $this->setPressImg(null);
                 break;
             default:
-                $getFile = getPurchaseOrderImg();
-                $setFile = setPurchaseOrderImg(null);
+                $getFile = $this->getPurchaseOrderImg();
+                if (null === $getFile) {
+                    return;
+                }
                 $path = self::SERVER_PATH_TO_PURCHASE_ORDER_IMAGE_FOLDER;
+                $this->uploadOneFile($path, $getFile);
+                $this->purchaseOrderImageUrl = $getFile->getClientOriginalName();
+                $this->setPurchaseOrderImg(null);
         }
-        // the file property can be empty if the field is not required
-        if (null === $this->$getFile) {
-            return;
-        }
-
-        // we use the original file name here but you should
-        // sanitize it at least to avoid any security issues
-
-        // move takes the target directory and target filename as params
-        $this->$getFile->move(
-            $path,
-            $this->$getFile->getClientOriginalName()
-        );
-
-        // set the path property to the filename where you've saved the file
-        $this->filename = $this->$getFile->getClientOriginalName();
-
-        // clean up the file property as you won't need it anymore
-        $this->$setFile;
     }
 
     public function lifecycleFileUpload()
@@ -445,9 +454,9 @@ class Book
     /**
      * Updates the hash value to force the preUpdate and postUpdate events to fire
      */
-    public function refreshUpdated()
+    public function refreshuploaded()
     {
-        $this->setUpdated(new \DateTime());
+        $this->setUploaded(new \DateTime());
     }
 
 }
