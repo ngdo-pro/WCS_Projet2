@@ -62,7 +62,14 @@ class BookAdmin extends AbstractAdmin
     {
         $datagridMapper
             ->add('title')
+            ->add('author')
             ->add('description')
+            ->add('facebookLinkUrl')
+            ->add('imageUrl')
+            ->add('pressTitle')
+            ->add('pressImageUrl')
+            ->add('releaseDate')
+            ->add('purchaseOrderImageUrl')
         ;
     }
 
@@ -71,7 +78,14 @@ class BookAdmin extends AbstractAdmin
     {
         $listMapper
             ->addIdentifier('title')
+            ->add('author')
             ->add('description')
+            ->add('facebookLinkUrl')
+            ->add('imageUrl')
+            ->add('pressTitle')
+            ->add('pressImageUrl')
+            ->add('releaseDate')
+            ->add('purchaseOrderImageUrl')
         ;
     }
 
