@@ -22,6 +22,7 @@ class BookAdmin extends AbstractAdmin
             ))
             ->add('description', 'ckeditor', array(
                 'config_name' => 'my_config',
+                'label' => 'Description',
                 'config'      => array('uiColor' => '#ffffff', 'language' => 'fr')
             ))
             ->add('facebookLinkUrl', 'text', array(
@@ -42,7 +43,7 @@ class BookAdmin extends AbstractAdmin
             ))
             ->add('releaseDate', 'date',array(
                 'years' => range(2000, 2020),
-                'format' => 'ddMMMMyyy',
+                'format' => 'ddMMyyyy',
                 'label' => 'Date de publication',
                 'required' => true
             ))
@@ -63,13 +64,8 @@ class BookAdmin extends AbstractAdmin
         $datagridMapper
             ->add('title')
             ->add('author')
-            ->add('description')
-            ->add('facebookLinkUrl')
-            ->add('imageUrl')
-            ->add('pressTitle')
-            ->add('pressImageUrl')
             ->add('releaseDate')
-            ->add('purchaseOrderImageUrl')
+
         ;
     }
 
@@ -80,12 +76,8 @@ class BookAdmin extends AbstractAdmin
             ->addIdentifier('title')
             ->add('author')
             ->add('description')
-            ->add('facebookLinkUrl')
             ->add('imageUrl')
-            ->add('pressTitle')
-            ->add('pressImageUrl')
             ->add('releaseDate')
-            ->add('purchaseOrderImageUrl')
         ;
     }
 
