@@ -41,7 +41,9 @@ class BookAdmin extends AbstractAdmin
                 'required' => false
             ))
             ->add('releaseDate', 'date',array(
-                'years' => range(date('Y') + 4, date('Y') - 16), 'label' => 'Date de publication',
+                'years' => range(2000, 2020),
+                'format' => 'ddMMMMyyy',
+                'label' => 'Date de publication',
                 'required' => true
             ))
             ->add('purchaseOrderImageUrl', 'file', array(
