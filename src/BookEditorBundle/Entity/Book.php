@@ -335,5 +335,100 @@ class Book
         return $this->pressArticles;
     }
 
+    const SERVER_PATH_TO_COVER_IMAGE_FOLDER = "../web/uploads/img/covers/";
+    const SERVER_PATH_TO_PRESS_IMAGE_FOLDER = "../web/uploads/img/pressArticle/";
+    const SERVER_PATH_TO_PURCHASE_ORDER_IMAGE_FOLDER = "../web/uploads/img/purchaseOrder/";
+    /**
+     * Unmapped property to handle coverImg uploads
+     */
+    private $coverImg;
+    /**
+     * Unmapped property to handle purchaseOrderImg uploads
+     */
+    private $purchaseOrderImg;
 
+    /**
+     * @return UploadedFile
+     */
+    public function getCoverImg()
+    {
+        return $this->coverImg;
+    }
+    /**
+     * @param UploadedFile $coverImg
+     */
+    public function setCoverImg(UploadedFile $coverImg = null)
+    {
+        $this->coverImg = $coverImg;
+    }
+    /**
+     * @return UploadedFile
+     */
+    public function getPurchaseOrderImg()
+    {
+        return $this->purchaseOrderImg;
+    }
+    /**
+     * @param UploadedFile $purchaseOrderImg
+     */
+    public function setPurchaseOrderImg(UploadedFile $purchaseOrderImg = null)
+    {
+        $this->purchaseOrderImg = $purchaseOrderImg;
+    }
+
+
+    private function uploadOneFile($path, UploadedFile $getFile){
+        $getFile->move(
+            $path,
+            $getFile->getClientOriginalName()
+        );
+    }
+    /**
+     * @param string $filename
+     * Manages the copying of the file to the relevant place on the server
+     */
+    public function upload($filename)
+    {
+        switch ($filename){
+            case 'coverImg':
+                $getFile = $this->getCoverImg();
+                if (null === $getFile) {
+                    return;
+                }
+                $path = self::SERVER_PATH_TO_COVER_IMAGE_FOLDER;
+                if ($this->imageUrl != NULL){
+                    $fs = new Filesystem();
+                    $fs->remove($path.$this->imageUrl);
+                }
+                $this->uploadOneFile($path, $getFile);
+                $this->imageUrl = $getFile->getClientOriginalName();
+                $this->setCoverImg(null);
+                break;
+            default:
+                $getFile = $this->getPurchaseOrderImg();
+                if (null === $getFile) {
+                    return;
+                }
+                $path = self::SERVER_PATH_TO_PURCHASE_ORDER_IMAGE_FOLDER;
+                if ($this->purchaseOrderImageUrl != NULL){
+                    $fs = new Filesystem();
+                    $fs->remove($path.$this->purchaseOrderImageUrl);
+                }
+                $this->uploadOneFile($path, $getFile);
+                $this->purchaseOrderImageUrl = $getFile->getClientOriginalName();
+                $this->setPurchaseOrderImg(null);
+        }
+    }
+    public function lifecycleFileUpload()
+    {
+        $this->upload('coverImg');
+        $this->upload('purchaseOrderImg');
+    }
+    /**
+     * Updates the hash value to force the preUpdate and postUpdate events to fire
+     */
+    public function refreshuploaded()
+    {
+        $this->setUploaded(new \DateTime());
+    }
 }
