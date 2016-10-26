@@ -30,7 +30,7 @@
         </div>
         <div class="col-md-8">
             <h1>{{ book.title }}</h1>
-            <p class="description">{{ book.description }}</p>
+            <p class="description">{{ book.description|raw }}</p>
         </div>
     </div>
     <div class="row">
@@ -46,7 +46,7 @@
                 </tr>
             </table>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-8 button-facebook">
             <a href="{{ book.facebookLinkUrl }}" target="_blank">Facebook</a>
         </div>
     </div>
