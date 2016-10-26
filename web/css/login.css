@@ -1,6 +1,6 @@
 #login_form {
     width: 200px;
-    margin: 50px auto 75px;
+    margin: 50px auto 0px;
 }
 #login_form form{
     margin: 0 auto;
@@ -9,4 +9,9 @@
 .navbar-custom-menu > .navbar-nav > li > .dropdown-menu {
     text-align: center;
     padding: 15px;
+}
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
