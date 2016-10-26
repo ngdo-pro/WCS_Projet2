@@ -467,4 +467,50 @@ class Book
         $this->setUploaded(new \DateTime());
     }
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $pressArticles;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->pressArticles = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add pressArticle
+     *
+     * @param \BookEditorBundle\Entity\PressArticle $pressArticle
+     *
+     * @return Book
+     */
+    public function addPressArticle(\BookEditorBundle\Entity\PressArticle $pressArticle)
+    {
+        $this->pressArticles[] = $pressArticle;
+
+        return $this;
+    }
+
+    /**
+     * Remove pressArticle
+     *
+     * @param \BookEditorBundle\Entity\PressArticle $pressArticle
+     */
+    public function removePressArticle(\BookEditorBundle\Entity\PressArticle $pressArticle)
+    {
+        $this->pressArticles->removeElement($pressArticle);
+    }
+
+    /**
+     * Get pressArticles
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPressArticles()
+    {
+        return $this->pressArticles;
+    }
 }
