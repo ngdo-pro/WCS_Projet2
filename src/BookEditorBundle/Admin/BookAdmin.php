@@ -2,6 +2,7 @@
 namespace BookEditorBundle\Admin;
 
 
+use BookEditorBundle\Entity\Book;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
@@ -71,6 +72,23 @@ class BookAdmin extends AbstractAdmin
             ->addIdentifier('title')
             ->add('description')
         ;
+    }
+
+    public function prePersist($image)
+    {
+        $this->manageFileUpload($image);
+    }
+
+    public function preUpdate($image)
+    {
+        $this->manageFileUpload($image);
+    }
+
+    private function manageFileUpload(Book $image)
+    {
+        if ($image->getCoverImg() || $image->getPressImg() || $image->getPurchaseOrderImg()) {
+            $image->refreshUpdated();
+        }
     }
 
 }

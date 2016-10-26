@@ -307,6 +307,10 @@ class Book
         return $this->slug;
     }
 
+
+    const SERVER_PATH_TO_COVER_IMAGE_FOLDER = "../uploads/img/covers/";
+    const SERVER_PATH_TO_PRESS_IMAGE_FOLDER = "../uploads/img/pressArticle/";
+    const SERVER_PATH_TO_PURCHASE_ORDER_IMAGE_FOLDER = "../uploads/img/purchaseOrder/";
     /**
      * Unmapped property to handle coverImg uploads
      */
@@ -319,6 +323,27 @@ class Book
      * Unmapped property to handle pressImg uploads
      */
     private $pressImg;
+
+    /**
+     * @var \DateTime
+     */
+    private $updated;
+
+    /**
+     * @return \DateTime
+     */
+    public function getUpdated()
+    {
+        return $this->updated;
+    }
+
+    /**
+     * @param \DateTime $updated
+     */
+    public function setUpdated($updated)
+    {
+        $this->updated = $updated;
+    }
 
     /**
      * @return UploadedFile
@@ -368,6 +393,61 @@ class Book
         $this->pressImg = $pressImg;
     }
 
+    /**
+     * Manages the copying of the file to the relevant place on the server
+     */
+    public function upload($filename)
+    {
+        switch ($filename){
+            case 'coverImg':
+                $getFile = getCoverImg();
+                $setFile = setCoverImg(null);
+                $path = self::SERVER_PATH_TO_COVER_IMAGE_FOLDER;
+                break;
+            case 'pressImg':
+                $getFile = getPressImg();
+                $setFile = setPressImg(null);
+                $path = self::SERVER_PATH_TO_PRESS_IMAGE_FOLDER;
+                break;
+            default:
+                $getFile = getPurchaseOrderImg();
+                $setFile = setPurchaseOrderImg(null);
+                $path = self::SERVER_PATH_TO_PURCHASE_ORDER_IMAGE_FOLDER;
+        }
+        // the file property can be empty if the field is not required
+        if (null === $this->$getFile) {
+            return;
+        }
 
+        // we use the original file name here but you should
+        // sanitize it at least to avoid any security issues
+
+        // move takes the target directory and target filename as params
+        $this->$getFile->move(
+            $path,
+            $this->$getFile->getClientOriginalName()
+        );
+
+        // set the path property to the filename where you've saved the file
+        $this->filename = $this->$getFile->getClientOriginalName();
+
+        // clean up the file property as you won't need it anymore
+        $this->$setFile;
+    }
+
+    public function lifecycleFileUpload()
+    {
+        $this->upload('coverImg');
+        $this->upload('pressImg');
+        $this->upload('purchaseOrderImg');
+    }
+
+    /**
+     * Updates the hash value to force the preUpdate and postUpdate events to fire
+     */
+    public function refreshUpdated()
+    {
+        $this->setUpdated(new \DateTime());
+    }
 
 }
