@@ -56,6 +56,12 @@ class Book
      */
     private $releaseDate;
 
+    /**
+     * @var boolean
+     */
+    private $tag = 0;
+
+
 
     /**
      * Get id
@@ -278,6 +284,30 @@ class Book
     {
         return $this->purchaseOrderImageUrl;
     }
+
+    /**
+     * Set tag
+     *
+     * @param boolean $tag
+     *
+     * @return Book
+     */
+    public function setTag($tag)
+    {
+        $this->tag = $tag;
+
+        return $this;
+    }
+
+    /**
+     * Get tag
+     *
+     * @return boolean
+     */
+    public function getTag()
+    {
+        return $this->tag;
+    }
     /**
      * @var string
      */
@@ -466,5 +496,8 @@ class Book
     {
         $this->setUploaded(new \DateTime());
     }
+
+
+
 
 }

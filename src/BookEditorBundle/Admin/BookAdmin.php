@@ -56,6 +56,10 @@ class BookAdmin extends AbstractAdmin
                 'label' => 'Slug',
                 'required' => true
             ))
+            ->add('tag', 'text' , array(
+                'label' => 'Epingler',
+                'required' => false
+            ))
         ;
     }
 
