@@ -96,7 +96,7 @@
 .resizeImg {
     height: 60px !important;
     width: auto !important;
-    margin-left: 35px !important;
+    margin-left: 10px !important;
     margin-bottom: 10px !important;
     transition: 0.3s ease;
 }
