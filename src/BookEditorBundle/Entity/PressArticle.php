@@ -79,7 +79,7 @@ class PressArticle
      */
     public function refreshUpdated()
     {
-        $this->setUpdated(new \DateTime());
+        $this->setUploaded(new \DateTime());
     }
 
     /**
@@ -167,5 +167,34 @@ class PressArticle
     public function getBook()
     {
         return $this->book;
+    }
+    /**
+     * @var \DateTime
+     */
+    private $uploaded;
+
+
+    /**
+     * Set uploaded
+     *
+     * @param \DateTime $uploaded
+     *
+     * @return PressArticle
+     */
+    public function setUploaded($uploaded)
+    {
+        $this->uploaded = $uploaded;
+
+        return $this;
+    }
+
+    /**
+     * Get uploaded
+     *
+     * @return \DateTime
+     */
+    public function getUploaded()
+    {
+        return $this->uploaded;
     }
 }

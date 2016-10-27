@@ -14,7 +14,10 @@ BookEditorBundle\Entity\PressArticle:
             length: 255
         imageUrl:
             type: string
-            length: 255
+            length: 255p
+        uploaded:
+            type: datetime
+            nullable: true
     manyToOne:
         book:
             targetEntity: Book
