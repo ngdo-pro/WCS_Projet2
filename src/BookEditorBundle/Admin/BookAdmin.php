@@ -40,6 +40,13 @@ class BookAdmin extends AbstractAdmin
                 'label' => 'Date de publication',
                 'required' => true
             ))
+            ->add('pressArticles', 'sonata_type_collection', array(
+                'by_reference' => false
+            ), array(
+                'edit' => 'inline',
+                'inline' => 'table',
+                'sortable' => 'id',
+            ))
             ->add('purchaseOrderImg', 'file', array(
                 'label' => 'Bon de commande',
                 'required' => false
