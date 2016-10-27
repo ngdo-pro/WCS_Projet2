@@ -81,20 +81,27 @@ class BookAdmin extends AbstractAdmin
         ;
     }
 
-    public function prePersist($image)
+    public function prePersist($book)
     {
-        $this->manageFileUpload($image);
+        $this->manageFileUpload($book);
+        foreach ($book->getPressArticles() as $pressArticle){
+            $pressArticle->setBook($book);
+        }
+
     }
 
-    public function preUpdate($image)
+    public function preUpdate($book)
     {
-        $this->manageFileUpload($image);
+        $this->manageFileUpload($book);
+        foreach ($book->getPressArticles() as $pressArticle){
+            $pressArticle->setBook($book);
+        }
     }
 
-    private function manageFileUpload(Book $image)
+    private function manageFileUpload(Book $book)
     {
-        if ($image->getCoverImg() || $image->getPurchaseOrderImg()) {
-            $image->refreshuploaded();
+        if ($book->getCoverImg() || $book->getPurchaseOrderImg()) {
+            $book->refreshuploaded();
         }
     }
 
