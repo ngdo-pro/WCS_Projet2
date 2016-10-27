@@ -32,7 +32,7 @@ class BookAdmin extends AbstractAdmin
             ))
             ->add('coverImg', 'file', array(
                 'label' => 'Image de la couverture',
-                'required' => true
+                'required' => false
             ))
             ->add('releaseDate', 'date',array(
                 'years' => range(2000, 2020),
