@@ -78,12 +78,12 @@ class BookAdmin extends AbstractAdmin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->addIdentifier('title')
-            ->add('author')
-            ->add('description')
-            ->add('imageUrl')
-            ->add('releaseDate')
-            ->add('tag')
+            ->addIdentifier( 'title' , null, array ( 'label' => 'Titre') )
+            ->add('author' , null, array ( 'label' => 'Autheur') )
+            ->add('description' , null, array ( 'label' => 'Description') )
+            ->add('imageUrl' , null, array ( 'label' => 'Image de couverture') )
+            ->add('releaseDate' , null, array ( 'label' => 'Date de publication') )
+            ->add('tag' , null, array ( 'label' => 'Epingle') )
         ;
     }
 
