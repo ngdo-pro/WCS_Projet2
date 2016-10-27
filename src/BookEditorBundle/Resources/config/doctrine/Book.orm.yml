@@ -43,6 +43,7 @@ BookEditorBundle\Entity\Book:
         pressArticles:
             targetEntity: PressArticle
             mappedBy: book
+            cascade: [ persist ]
     lifecycleCallbacks:
         prePersist:   [ lifecycleFileUpload ]
         preUpdate:    [ lifecycleFileUpload ]
