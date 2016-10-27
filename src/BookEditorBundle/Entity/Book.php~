@@ -2,6 +2,7 @@
 
 namespace BookEditorBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
@@ -75,13 +76,12 @@ class Book
     {
         $this->pressArticles = new \Doctrine\Common\Collections\ArrayCollection();
     }
-=======
+    /**
      * @var boolean
      */
     private $tag = 0;
 
 
->>>>>>> dev_symfony
 
     /**
      * Get id
@@ -308,8 +308,7 @@ class Book
     {
         return $this->uploaded;
     }
-<<<<<<< HEAD
-=======
+
 
     /**
      * Set tag
@@ -335,12 +334,6 @@ class Book
     {
         return (boolean)$this->tag;
     }
-    /**
-     * @var string
-     */
-    private $slug;
-
->>>>>>> dev_symfony
 
     /**
      * Add pressArticle
@@ -374,6 +367,19 @@ class Book
     public function getPressArticles()
     {
         return $this->pressArticles;
+    }
+
+    public function setPressArticles(PressArticle $pressArticles){
+        if (gettype($pressArticles) == "array") {
+            $pressArticles = new ArrayCollection($pressArticles);
+        }
+
+        foreach($pressArticles as $pressArticle)
+        {
+            $pressArticle->setBook($this);
+        }
+
+        $this->pressArticles = $pressArticles;
     }
 
     /**
@@ -486,11 +492,4 @@ class Book
     {
         $this->setUploaded(new \DateTime());
     }
-<<<<<<< HEAD
-=======
-
-
-
-
->>>>>>> dev_symfony
 }
