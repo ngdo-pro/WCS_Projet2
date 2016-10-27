@@ -15,6 +15,7 @@ BookEditorBundle\Entity\PressArticle:
         imageUrl:
             type: string
             length: 255p
+            nullable: true
         uploaded:
             type: datetime
             nullable: true
@@ -25,4 +26,6 @@ BookEditorBundle\Entity\PressArticle:
             joinColumn:
                 name: book_id
                 referencedColumnName: id
-    lifecycleCallbacks: {  }
+    lifecycleCallbacks:
+        prePersist:   [ lifecycleFileUpload ]
+        preUpdate:    [ lifecycleFileUpload ]

@@ -60,7 +60,7 @@ class PressArticle
         );
 
         // set the path property to the filename where you've saved the file
-        $this->filename = $this->getImg()->getClientOriginalName();
+        $this->imageUrl = $this->getImg()->getClientOriginalName();
 
         // clean up the file property as you won't need it anymore
         $this->setImg(null);
@@ -77,9 +77,9 @@ class PressArticle
     /**
      * Updates the hash value to force the preUpdate and postUpdate events to fire
      */
-    public function refreshUpdated()
+    public function refreshUploaded()
     {
-        $this->setUpdated(new \DateTime());
+        $this->setUploaded(new \DateTime());
     }
 
     /**
@@ -167,5 +167,34 @@ class PressArticle
     public function getBook()
     {
         return $this->book;
+    }
+    /**
+     * @var \DateTime
+     */
+    private $uploaded;
+
+
+    /**
+     * Set uploaded
+     *
+     * @param \DateTime $uploaded
+     *
+     * @return PressArticle
+     */
+    public function setUploaded($uploaded)
+    {
+        $this->uploaded = $uploaded;
+
+        return $this;
+    }
+
+    /**
+     * Get uploaded
+     *
+     * @return \DateTime
+     */
+    public function getUploaded()
+    {
+        return $this->uploaded;
     }
 }

@@ -12,6 +12,18 @@ class BookAdmin extends AbstractAdmin
 {
     protected function configureFormFields(FormMapper $formMapper)
     {
+        $image = $this->getSubject();
+
+        // use $fileFieldOptions so we can add other options to the field
+        $fileFieldOptions = array('required' => false);
+        if ($image && ($webPath = 'uploads/img/covers/'.$image->getImageUrl())) {
+            // get the container so the full path to the image can be set
+            $container = $this->getConfigurationPool()->getContainer();
+            $fullPath = $container->get('request')->getBasePath().'/'.$webPath;
+
+            // add a 'help' option containing the preview's img tag
+            $fileFieldOptions['help'] = '<img src="'.$fullPath.'" class="admin-preview" />';
+        }
         $formMapper
             ->add('title', 'text', array(
                 'label' => 'Titre',
@@ -30,10 +42,7 @@ class BookAdmin extends AbstractAdmin
                 'label' => 'Lien vers la page Facebook',
                 'required' => false
             ))
-            ->add('coverImg', 'file', array(
-                'label' => 'Image de la couverture',
-                'required' => false
-            ))
+            ->add('coverImg', 'file', $fileFieldOptions)
             ->add('releaseDate', 'date',array(
                 'years' => range(2000, 2020),
                 'format' => 'ddMMyyyy',

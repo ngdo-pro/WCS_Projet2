@@ -60,7 +60,7 @@ class PressArticle
         );
 
         // set the path property to the filename where you've saved the file
-        $this->filename = $this->getImg()->getClientOriginalName();
+        $this->imageUrl = $this->getImg()->getClientOriginalName();
 
         // clean up the file property as you won't need it anymore
         $this->setImg(null);

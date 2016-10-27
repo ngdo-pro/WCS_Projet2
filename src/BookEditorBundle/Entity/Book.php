@@ -2,6 +2,7 @@
 
 namespace BookEditorBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
@@ -333,6 +334,19 @@ class Book
     public function getPressArticles()
     {
         return $this->pressArticles;
+    }
+
+    public function setPressArticles(PressArticle $pressArticles){
+        if (gettype($pressArticles) == "array") {
+            $addresses = new ArrayCollection($pressArticles);
+        }
+
+        foreach($pressArticles as $pressArticle)
+        {
+            $pressArticle->setBook($this);
+        }
+
+        $this->pressArticles = $pressArticles;
     }
 
     /**
