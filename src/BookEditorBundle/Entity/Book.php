@@ -304,9 +304,10 @@ class Book
      *
      * @return boolean
      */
+
     public function getTag()
     {
-        return $this->tag;
+        return (boolean)$this->tag;
     }
     /**
      * @var string
