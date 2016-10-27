@@ -39,6 +39,10 @@ BookEditorBundle\Entity\Book:
             type: string
             length: 255
             nullable: true
+        tag:
+            type: boolean
+            options:
+                default: 0
         slug:
             type: string
             length: 255

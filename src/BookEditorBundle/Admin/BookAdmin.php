@@ -56,6 +56,10 @@ class BookAdmin extends AbstractAdmin
                 'label' => 'Slug',
                 'required' => true
             ))
+            ->add('tag', 'checkbox', array(
+                'label' => 'Epingler',
+                'required' => false
+            ))
         ;
     }
 
@@ -79,6 +83,7 @@ class BookAdmin extends AbstractAdmin
             ->add('description')
             ->add('imageUrl')
             ->add('releaseDate')
+            ->add('tag')
         ;
     }
 
