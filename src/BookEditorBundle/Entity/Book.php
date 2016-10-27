@@ -64,6 +64,7 @@ class Book
     private $uploaded;
 
     /**
+<<<<<<< HEAD
      * @var \Doctrine\Common\Collections\Collection
      */
     private $pressArticles;
@@ -75,6 +76,12 @@ class Book
     {
         $this->pressArticles = new \Doctrine\Common\Collections\ArrayCollection();
     }
+    /**
+     * @var boolean
+     */
+    private $tag = 0;
+
+
 
     /**
      * Get id
@@ -302,6 +309,32 @@ class Book
         return $this->uploaded;
     }
 
+
+    /**
+     * Set tag
+     *
+     * @param boolean $tag
+     *
+     * @return Book
+     */
+    public function setTag($tag)
+    {
+        $this->tag = $tag;
+
+        return $this;
+    }
+
+    /**
+     * Get tag
+     *
+     * @return boolean
+     */
+
+    public function getTag()
+    {
+        return (boolean)$this->tag;
+    }
+
     /**
      * Add pressArticle
      *
@@ -338,7 +371,7 @@ class Book
 
     public function setPressArticles(PressArticle $pressArticles){
         if (gettype($pressArticles) == "array") {
-            $addresses = new ArrayCollection($pressArticles);
+            $pressArticles = new ArrayCollection($pressArticles);
         }
 
         foreach($pressArticles as $pressArticle)

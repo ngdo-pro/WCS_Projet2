@@ -45,9 +45,9 @@ class EventAdmin extends AbstractAdmin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->addIdentifier('title')
-            ->add('dateStart')
-            ->add('dateEnd')
+            ->add('title' , null, array ( 'label' => 'Titre') )
+            ->add('dateStart' , null, array ( 'label' => 'Dade de début') )
+            ->add('dateEnd' , null, array ( 'label' => 'Date de fin') )
         ;
     }
 
