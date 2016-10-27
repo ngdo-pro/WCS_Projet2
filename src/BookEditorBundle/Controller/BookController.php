@@ -114,7 +114,7 @@ class BookController extends Controller
                     'text/html');
 
             $mailer->send($message);
-            return $this->redirectToRoute('book_index');
+            return $this->redirectToRoute('book_aboutUs');
         }
 
         return $this->render('book/aboutUs.html.twig', array(
