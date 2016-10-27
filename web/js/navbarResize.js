@@ -7,6 +7,7 @@ $(function(){
             $('.navbar-default .navbar-nav > li > a').addClass('resizeLink');
             $('.navbar-nav').addClass('resizeLinkBar');
 
+
         } else {
             $('.navbar-brand img').removeClass('resizeImg');
             $('.navbar-default').removeClass('resizeBackground');

@@ -91,6 +91,8 @@
         padding-right: 30px !important;
         padding-top: 100px;
     }
+
+
 }
 
 .resizeImg {
@@ -103,9 +105,6 @@
 
 .navbar-default.resizeBackground:before {
     height: 100px;
-    width: auto;
-    opacity: .5 ;
-    transition: width 2s linear 1s;
 }
 
 .resizeLink {
@@ -204,6 +203,7 @@
     .navbar-default .navbar-nav {
         padding-top: 10px;
     }
+    
 
     #content {
         padding-top: 100px;
