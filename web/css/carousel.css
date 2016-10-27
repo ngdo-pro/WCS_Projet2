@@ -72,6 +72,10 @@
     display: block;
 }
 
+.carousel-control.left {
+    margin-left: 460px;
+}
+
 .carousel-know-more a{
     padding: 5px 10px;
     background: #5D1C43;
@@ -89,6 +93,11 @@
 .carousel-know-more a:hover{
     background: white;
     color: #5d1c43;
+}
+
+.carousel-control.left,
+.carousel-control.right{
+    background: none;
 }
 
 @media only screen and (max-width: 450px) {
@@ -109,9 +118,23 @@
     #carousel .title-container p{
         font-size: 0.75em;
     }
+
+    .carousel-control.left {
+        margin-left: 105px;
+    }
 }
 
-.carousel-control.left,
-.carousel-control.right{
-    background: none;
+@media only screen and (max-width: 980px) {
+
+    .carousel-control.left {
+        margin-left: 310px;
+    }
 }
+
+@media only screen and (max-width: 360px) {
+
+    .carousel-control.left {
+        margin-left: 120px;
+    }
+}
+
