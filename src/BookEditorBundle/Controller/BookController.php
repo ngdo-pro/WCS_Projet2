@@ -64,8 +64,11 @@ class BookController extends Controller
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function showToPublicAction(Book $book){
+        $em = $this->getDoctrine()->getManager();
+        $pressArticles = $em->getRepository('BookEditorBundle:PressArticle')->findAll();
         return $this->render('book/showToPublic.html.twig', array(
-            'book' => $book
+            'book' => $book,
+            'pressArticles' => $pressArticles
         ));
 
     }
