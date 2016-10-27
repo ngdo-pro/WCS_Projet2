@@ -30,7 +30,7 @@
 .navbar-default .navbar-nav > .active > a {
     background-color: inherit;
     border-bottom: 3px solid #5d1c43;
-    color: #636467;
+    color: #5d1c43;
 }
 
 .navbar-default .navbar-nav > .active > a:hover {
