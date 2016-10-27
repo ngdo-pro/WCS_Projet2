@@ -25,7 +25,7 @@ class BookController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $books = $em->getRepository('BookEditorBundle:Book')->findAll();
+        $books = $em->getRepository('BookEditorBundle:Book')->getTaggedBook();
         $carouselBooks = $em->getRepository('BookEditorBundle:Book')->findTheLastThree();
 
         $em->getRepository('BookEditorBundle:Event')->deletePastEvents($em);

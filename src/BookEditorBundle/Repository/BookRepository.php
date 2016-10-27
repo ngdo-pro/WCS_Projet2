@@ -21,4 +21,14 @@ class BookRepository extends EntityRepository
 
         return $query->getResult();
     }
+    public function getTaggedBook(){
+
+        $tagBook = $this->createQueryBuilder('b')
+            ->orderBy('b.releaseDate', 'DESC')
+            ->orderBy('b.tag', 'DESC')
+            ->setMaxResults(9)
+            ->getQuery();
+
+        return $tagBook->getResult();
+    }
 }

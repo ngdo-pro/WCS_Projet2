@@ -34,7 +34,7 @@ h1 {
     border-radius: inherit;
 
 }.form-control:focus{
-    border-color: lightgray;
-    box-shadow: 0 0 5px #5d1c43;
+     border-color: lightgray;
+     box-shadow: 0 0 5px #5d1c43;
 
-}
+ }
