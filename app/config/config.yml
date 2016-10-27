@@ -82,6 +82,8 @@ sonata_block:
 
 sonata_admin:
     title:      RDM-Éditions
+    templates:
+        user_block: '%kernel.root_dir%/Resources/views/book/custom_user_menu.html.twig'
 
 ivory_ck_editor:
     default_config: my_config
