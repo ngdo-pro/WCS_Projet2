@@ -83,6 +83,7 @@ class BookAdmin extends AbstractAdmin
             ->add('description')
             ->add('imageUrl')
             ->add('releaseDate')
+            ->add('tag')
         ;
     }
 
