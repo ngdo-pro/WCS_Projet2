@@ -2,6 +2,7 @@
 
 namespace BookEditorBundle\Admin;
 
+use BookEditorBundle\Entity\PressArticle;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
@@ -45,8 +46,13 @@ class PressArticleAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('title')
-            ->add('imageUrl')
+            ->add('title', 'text', array(
+                'label' => 'Titre'
+            ))
+            ->add('img', 'file', array(
+                'label' => 'Photo de l\'article',
+                'required' => false
+            ))
         ;
     }
 
@@ -59,5 +65,22 @@ class PressArticleAdmin extends AbstractAdmin
             ->add('title')
             ->add('imageUrl')
         ;
+    }
+
+    public function prePersist($pressArticle)
+    {
+        $this->manageFileUpload($pressArticle);
+    }
+
+    public function preUpdate($pressArticle)
+    {
+        $this->manageFileUpload($pressArticle);
+    }
+
+    private function manageFileUpload(PressArticle $pressArticle)
+    {
+        if ($pressArticle->getImg()) {
+            $pressArticle->refreshUploaded();
+        }
     }
 }

@@ -77,7 +77,7 @@ class PressArticle
     /**
      * Updates the hash value to force the preUpdate and postUpdate events to fire
      */
-    public function refreshUpdated()
+    public function refreshUploaded()
     {
         $this->setUploaded(new \DateTime());
     }
