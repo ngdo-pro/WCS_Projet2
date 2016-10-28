@@ -17,6 +17,8 @@ use BookEditorBundle\Entity\Formulaire;
 use BookEditorBundle\Form\BookType;
 use Symfony\Component\Validator\Constraints\Date;
 use Symfony\Component\Validator\Constraints\DateTime;
+use EWZ\Bundle\RecaptchaBundle\Form\Type\EWZRecaptchaType;
+use EWZ\Bundle\RecaptchaBundle\Validator\Constraints\IsTrue as RecaptchaTrue;
 
 /**
  * Book controller.
@@ -70,7 +72,8 @@ class BookController extends Controller
      * @return \Symfony\Component\HttpFoundation\Response
      */
 
-    public function showToPublicAction(Book $book){
+    public function showToPublicAction(Book $book)
+    {
         $em = $this->getDoctrine()->getManager();
         $pressArticles = $em->getRepository('BookEditorBundle:PressArticle')->findBy(array('book' => $book));
         return $this->render('book/showToPublic.html.twig', array(
@@ -91,6 +94,14 @@ class BookController extends Controller
             ->add('fFirstname', TextType::class)
             ->add('fLastname', TextType::class)
             ->add('fMessage', TextareaType::class)
+            ->add('recaptcha', EWZRecaptchaType::class, array(
+                    'language' => 'fr',
+                    'mapped' => false,
+                    'constraints' => array(
+                        new RecaptchaTrue()
+                    )
+                )
+            )
             ->add('submit', SubmitType::class, array('label' => 'Envoyer'))
             ->getForm();
 
