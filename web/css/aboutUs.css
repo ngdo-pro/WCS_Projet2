@@ -18,7 +18,8 @@ h1 {
     background-color: grey;
     margin-bottom: 20px;
 }
-.btn-primary{
+
+.btn-primary {
     padding: 6px 10px;
     border: solid 1px;
     background-color: #fff;
@@ -27,16 +28,31 @@ h1 {
     border-radius: inherit;
 }
 
-.btn-primary:hover{
+.btn-primary:hover {
     background-color: #5d1c43;
     border-color: #fff;
 }
 
-.form-control{
+.form-control {
     border-radius: inherit;
+}
 
-}.form-control:focus{
-     border-color: lightgray;
-     box-shadow: 0 0 5px #5d1c43;
+.form-control:focus {
+    border-color: lightgray;
+    box-shadow: 0 0 5px #5d1c43;
+}
 
- }
+#submit_btn {
+    display: flex;
+    justify-content: center;
+    height: 103px;
+}
+
+#submit_btn div:first-child{
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+footer {
+    margin-top: 30px;
+}
