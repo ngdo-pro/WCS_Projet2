@@ -16,7 +16,7 @@ book_showToPublic:
 book_aboutUs:
     path:     /etre-edite
     defaults: { _controller: "BookEditorBundle:Book:aboutUs" }
-    methods:  GET
+    methods:  GET|POST
 
 book_legalNotice:
     path:     /mentions-legales

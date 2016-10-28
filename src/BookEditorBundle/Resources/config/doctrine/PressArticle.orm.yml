@@ -1,0 +1,31 @@
+BookEditorBundle\Entity\PressArticle:
+    type: entity
+    table: null
+    repositoryClass: BookEditorBundle\Repository\PressArticleRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        title:
+            type: string
+            length: 255
+        imageUrl:
+            type: string
+            length: 255p
+            nullable: true
+        uploaded:
+            type: datetime
+            nullable: true
+    manyToOne:
+        book:
+            targetEntity: Book
+            inversedBy: press_articles
+            joinColumn:
+                name: book_id
+                referencedColumnName: id
+    lifecycleCallbacks:
+        prePersist:   [ lifecycleFileUpload ]
+        preUpdate:    [ lifecycleFileUpload ]
