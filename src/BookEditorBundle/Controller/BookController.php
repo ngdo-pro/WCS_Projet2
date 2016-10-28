@@ -72,7 +72,7 @@ class BookController extends Controller
 
     public function showToPublicAction(Book $book){
         $em = $this->getDoctrine()->getManager();
-        $pressArticles = $em->getRepository('BookEditorBundle:PressArticle')->findAll();
+        $pressArticles = $em->getRepository('BookEditorBundle:PressArticle')->findBy(array('book' => $book));
         return $this->render('book/showToPublic.html.twig', array(
             'book' => $book,
             'pressArticles' => $pressArticles
