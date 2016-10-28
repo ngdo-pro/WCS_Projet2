@@ -64,7 +64,6 @@ class Book
     private $uploaded;
 
     /**
-<<<<<<< HEAD
      * @var \Doctrine\Common\Collections\Collection
      */
     private $pressArticles;
