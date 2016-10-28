@@ -138,4 +138,8 @@
     .carousel-control.left {
         margin-left: 40%;
     }
+
+    #carousel .title-container{
+        border-left: none;
+    }
 }
