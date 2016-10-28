@@ -69,10 +69,13 @@ class BookController extends Controller
      * @param Book $book
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function showToPublicAction(Book $book)
-    {
+
+    public function showToPublicAction(Book $book){
+        $em = $this->getDoctrine()->getManager();
+        $pressArticles = $em->getRepository('BookEditorBundle:PressArticle')->findBy(array('book' => $book));
         return $this->render('book/showToPublic.html.twig', array(
-            'book' => $book
+            'book' => $book,
+            'pressArticles' => $pressArticles
         ));
 
     }
