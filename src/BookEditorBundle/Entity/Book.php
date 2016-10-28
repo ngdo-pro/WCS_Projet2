@@ -2,6 +2,7 @@
 
 namespace BookEditorBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
@@ -11,8 +12,9 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
  */
 class Book
 {
+
     /**
-     * @var int
+     * @var integer
      */
     private $id;
 
@@ -42,25 +44,48 @@ class Book
     private $imageUrl;
 
     /**
-     * @var string
+     * @var \DateTime
      */
-    private $pressTitle;
+    private $releaseDate;
 
     /**
      * @var string
      */
-    private $pressImageUrl;
+    private $purchaseOrderImageUrl;
+
+    /**
+     * @var string
+     */
+    private $slug;
 
     /**
      * @var \DateTime
      */
-    private $releaseDate;
+    private $uploaded;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $pressArticles;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->pressArticles = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    /**
+     * @var boolean
+     */
+    private $tag = 0;
+
 
 
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -71,6 +96,7 @@ class Book
      * Set title
      *
      * @param string $title
+     *
      * @return Book
      */
     public function setTitle($title)
@@ -83,7 +109,7 @@ class Book
     /**
      * Get title
      *
-     * @return string 
+     * @return string
      */
     public function getTitle()
     {
@@ -94,6 +120,7 @@ class Book
      * Set author
      *
      * @param string $author
+     *
      * @return Book
      */
     public function setAuthor($author)
@@ -106,7 +133,7 @@ class Book
     /**
      * Get author
      *
-     * @return string 
+     * @return string
      */
     public function getAuthor()
     {
@@ -117,6 +144,7 @@ class Book
      * Set description
      *
      * @param string $description
+     *
      * @return Book
      */
     public function setDescription($description)
@@ -129,7 +157,7 @@ class Book
     /**
      * Get description
      *
-     * @return string 
+     * @return string
      */
     public function getDescription()
     {
@@ -140,6 +168,7 @@ class Book
      * Set facebookLinkUrl
      *
      * @param string $facebookLinkUrl
+     *
      * @return Book
      */
     public function setFacebookLinkUrl($facebookLinkUrl)
@@ -152,7 +181,7 @@ class Book
     /**
      * Get facebookLinkUrl
      *
-     * @return string 
+     * @return string
      */
     public function getFacebookLinkUrl()
     {
@@ -163,6 +192,7 @@ class Book
      * Set imageUrl
      *
      * @param string $imageUrl
+     *
      * @return Book
      */
     public function setImageUrl($imageUrl)
@@ -175,7 +205,7 @@ class Book
     /**
      * Get imageUrl
      *
-     * @return string 
+     * @return string
      */
     public function getImageUrl()
     {
@@ -183,55 +213,10 @@ class Book
     }
 
     /**
-     * Set pressTitle
-     *
-     * @param string $pressTitle
-     * @return Book
-     */
-    public function setPressTitle($pressTitle)
-    {
-        $this->pressTitle = $pressTitle;
-
-        return $this;
-    }
-
-    /**
-     * Get pressTitle
-     *
-     * @return string 
-     */
-    public function getPressTitle()
-    {
-        return $this->pressTitle;
-    }
-
-    /**
-     * Set pressImageUrl
-     *
-     * @param string $pressImageUrl
-     * @return Book
-     */
-    public function setPressImageUrl($pressImageUrl)
-    {
-        $this->pressImageUrl = $pressImageUrl;
-
-        return $this;
-    }
-
-    /**
-     * Get pressImageUrl
-     *
-     * @return string 
-     */
-    public function getPressImageUrl()
-    {
-        return $this->pressImageUrl;
-    }
-
-    /**
      * Set releaseDate
      *
      * @param \DateTime $releaseDate
+     *
      * @return Book
      */
     public function setReleaseDate($releaseDate)
@@ -244,22 +229,18 @@ class Book
     /**
      * Get releaseDate
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getReleaseDate()
     {
         return $this->releaseDate;
     }
-    /**
-     * @var string
-     */
-    private $purchaseOrderImageUrl;
-
 
     /**
      * Set purchaseOrderImageUrl
      *
      * @param string $purchaseOrderImageUrl
+     *
      * @return Book
      */
     public function setPurchaseOrderImageUrl($purchaseOrderImageUrl)
@@ -272,17 +253,12 @@ class Book
     /**
      * Get purchaseOrderImageUrl
      *
-     * @return string 
+     * @return string
      */
     public function getPurchaseOrderImageUrl()
     {
         return $this->purchaseOrderImageUrl;
     }
-    /**
-     * @var string
-     */
-    private $slug;
-
 
     /**
      * Set slug
@@ -308,9 +284,110 @@ class Book
         return $this->slug;
     }
 
+    /**
+     * Set uploaded
+     *
+     * @param \DateTime $uploaded
+     *
+     * @return Book
+     */
+    public function setUploaded($uploaded)
+    {
+        $this->uploaded = $uploaded;
 
+        return $this;
+    }
+
+    /**
+     * Get uploaded
+     *
+     * @return \DateTime
+     */
+    public function getUploaded()
+    {
+        return $this->uploaded;
+    }
+
+
+    /**
+     * Set tag
+     *
+     * @param boolean $tag
+     *
+     * @return Book
+     */
+    public function setTag($tag)
+    {
+        $this->tag = $tag;
+
+        return $this;
+    }
+
+    /**
+     * Get tag
+     *
+     * @return boolean
+     */
+
+    public function getTag()
+    {
+        return (boolean)$this->tag;
+    }
+
+    /**
+     * Add pressArticle
+     *
+     * @param \BookEditorBundle\Entity\PressArticle $pressArticle
+     *
+     * @return Book
+     */
+    public function addPressArticle(\BookEditorBundle\Entity\PressArticle $pressArticle)
+    {
+        $this->pressArticles[] = $pressArticle;
+
+        return $this;
+    }
+
+    /**
+     * Remove pressArticle
+     *
+     * @param \BookEditorBundle\Entity\PressArticle $pressArticle
+     */
+    public function removePressArticle(\BookEditorBundle\Entity\PressArticle $pressArticle)
+    {
+        $this->pressArticles->removeElement($pressArticle);
+    }
+
+    /**
+     * Get pressArticles
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPressArticles()
+    {
+        return $this->pressArticles;
+    }
+
+    public function setPressArticles(PressArticle $pressArticles){
+        if (gettype($pressArticles) == "array") {
+            $pressArticles = new ArrayCollection($pressArticles);
+        }
+
+        foreach($pressArticles as $pressArticle)
+        {
+            $pressArticle->setBook($this);
+        }
+
+        $this->pressArticles = $pressArticles;
+    }
+
+    /**
+     *  path to cover images upload directory
+     */
     const SERVER_PATH_TO_COVER_IMAGE_FOLDER = "../web/uploads/img/covers/";
-    const SERVER_PATH_TO_PRESS_IMAGE_FOLDER = "../web/uploads/img/pressArticle/";
+    /**
+     *  path to purchase order images upload directory
+     */
     const SERVER_PATH_TO_PURCHASE_ORDER_IMAGE_FOLDER = "../web/uploads/img/purchaseOrder/";
     /**
      * Unmapped property to handle coverImg uploads
@@ -320,31 +397,6 @@ class Book
      * Unmapped property to handle purchaseOrderImg uploads
      */
     private $purchaseOrderImg;
-    /**
-     * Unmapped property to handle pressImg uploads
-     */
-    private $pressImg;
-
-    /**
-     * @var \DateTime
-     */
-    private $uploaded;
-
-    /**
-     * @return \DateTime
-     */
-    public function getuploaded()
-    {
-        return $this->uploaded;
-    }
-
-    /**
-     * @param \DateTime $uploaded
-     */
-    public function setUploaded($uploaded)
-    {
-        $this->uploaded = $uploaded;
-    }
 
     /**
      * @return UploadedFile
@@ -353,7 +405,6 @@ class Book
     {
         return $this->coverImg;
     }
-
     /**
      * @param UploadedFile $coverImg
      */
@@ -361,7 +412,6 @@ class Book
     {
         $this->coverImg = $coverImg;
     }
-
     /**
      * @return UploadedFile
      */
@@ -369,7 +419,6 @@ class Book
     {
         return $this->purchaseOrderImg;
     }
-
     /**
      * @param UploadedFile $purchaseOrderImg
      */
@@ -378,29 +427,17 @@ class Book
         $this->purchaseOrderImg = $purchaseOrderImg;
     }
 
-    /**
-     * @return UploadedFile
-     */
-    public function getPressImg()
-    {
-        return $this->pressImg;
-    }
 
     /**
-     * @param UploadedFile $pressImg
+     * @param $path
+     * @param UploadedFile $getFile
      */
-    public function setPressImg(UploadedFile $pressImg = null)
-    {
-        $this->pressImg = $pressImg;
-    }
-
     private function uploadOneFile($path, UploadedFile $getFile){
         $getFile->move(
             $path,
             $getFile->getClientOriginalName()
         );
     }
-
     /**
      * @param string $filename
      * Manages the copying of the file to the relevant place on the server
@@ -422,20 +459,6 @@ class Book
                 $this->imageUrl = $getFile->getClientOriginalName();
                 $this->setCoverImg(null);
                 break;
-            case 'pressImg':
-                $getFile = $this->getPressImg();
-                if (null === $getFile) {
-                    return;
-                }
-                $path = self::SERVER_PATH_TO_PRESS_IMAGE_FOLDER;
-                if ($this->pressImageUrl != NULL){
-                    $fs = new Filesystem();
-                    $fs->remove($path.$this->pressImageUrl);
-                }
-                $this->uploadOneFile($path, $getFile);
-                $this->pressImageUrl = $getFile->getClientOriginalName();
-                $this->setPressImg(null);
-                break;
             default:
                 $getFile = $this->getPurchaseOrderImg();
                 if (null === $getFile) {
@@ -452,10 +475,12 @@ class Book
         }
     }
 
+    /**
+     *
+     */
     public function lifecycleFileUpload()
     {
         $this->upload('coverImg');
-        $this->upload('pressImg');
         $this->upload('purchaseOrderImg');
     }
 
@@ -466,5 +491,4 @@ class Book
     {
         $this->setUploaded(new \DateTime());
     }
-
 }

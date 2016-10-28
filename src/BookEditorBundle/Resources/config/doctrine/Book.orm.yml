@@ -25,13 +25,6 @@ BookEditorBundle\Entity\Book:
         imageUrl:
             type: string
             length: 255
-        pressTitle:
-            type: string
-            length: 255
-            nullable: true
-        pressImageUrl:
-            type: string
-            length: 255
             nullable: true
         releaseDate:
             type: date
@@ -39,6 +32,10 @@ BookEditorBundle\Entity\Book:
             type: string
             length: 255
             nullable: true
+        tag:
+            type: boolean
+            options:
+                default: 0
         slug:
             type: string
             length: 255
@@ -46,6 +43,11 @@ BookEditorBundle\Entity\Book:
         uploaded:
             type: datetime
             nullable: true
+    oneToMany:
+        pressArticles:
+            targetEntity: PressArticle
+            mappedBy: book
+            cascade: [ persist ]
     lifecycleCallbacks:
         prePersist:   [ lifecycleFileUpload ]
         preUpdate:    [ lifecycleFileUpload ]

@@ -68,6 +68,8 @@ doctrine:
 
 # Swiftmailer Configuration
 swiftmailer:
+    encryption: "%mailer_encryption%"
+    auth_mode: "%auth_mode%"
     transport: "%mailer_transport%"
     host:      "%mailer_host%"
     username:  "%mailer_user%"
@@ -82,6 +84,8 @@ sonata_block:
 
 sonata_admin:
     title:      RDM-Éditions
+    templates:
+        user_block: '%kernel.root_dir%/Resources/views/book/custom_user_menu.html.twig'
 
 ivory_ck_editor:
     default_config: my_config
