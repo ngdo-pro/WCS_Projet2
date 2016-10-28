@@ -19,8 +19,10 @@ h1 {
     margin-bottom: 20px;
 }
 .btn-primary{
+    padding: 6px 10px;
+    border: solid 1px;
     background-color: #fff;
-    border-color: #000;
+    border-color: grey;
     color: #000;
     border-radius: inherit;
 }
