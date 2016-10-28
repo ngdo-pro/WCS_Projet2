@@ -35,11 +35,14 @@
             <div class="collapse navbar-collapse navbar-right" id="main-navbar">
                 <div>
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="{{ path('book_index') }}">Accueil<span
-                                        class="sr-only">(current)</span></a>
+                        <li class="{% if app.request.attributes.get('_route') == 'book_index' %}active{% endif %}">
+                            <a href="{{ path('book_index') }}">Accueil<span class="sr-only">(current)</span></a>
                         </li>
-                        <li><a href="{{ path('book_ourBooks') }}">Nos livres</a></li>
-                        <li><a href="{{ path('book_aboutUs') }}">Être édité</a></li>
+                        <li class="{% if app.request.attributes.get('_route') == 'book_ourBooks' %}active{% endif %}">
+                            <a href="{{ path('book_ourBooks') }}">Nos livres</a>
+                        </li>
+                        <li class="{% if app.request.attributes.get('_route') == 'book_aboutUs' %}active{% endif %}">
+                            <a href="{{ path('book_aboutUs') }}">Être édité</a>
                     </ul>
                 </div>
             </div>
