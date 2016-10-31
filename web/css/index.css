@@ -20,14 +20,14 @@
 
 
 .block_img:hover {
-    background-color: #5D1C43 ;
+    background-color: whitesmoke ;
     cursor: pointer;
 
 }
 
 .block_img{
     background-color: #999999;
-    background-image: linear-gradient( 135deg, rgba(255,255,255,0) , white, rgba(255,255,255,0) );
+    background-image: linear-gradient( 135deg, rgba(255,255,255,0) , rgb(232, 232, 232) , rgba(255,255,255,0) );
     transition:background-color 0.5s;
 
     height: 300px;
@@ -64,7 +64,8 @@
     float: right;
     border:1px solid black;
     color: black;
-    padding:4px
+    padding:4px;
+    -moz-transition: background 0.1s, color 0.3s;
 }
 .btn_more:hover{
     background-color: #5D1C43;
