@@ -65,8 +65,12 @@
     border:1px solid black;
     color: black;
     padding:4px;
+    -webkit-transition: background 0.1s, color 0.3s;
     -moz-transition: background 0.1s, color 0.3s;
+    -o-transition: background 0.1s, color 0.3s;
+    transition: background 0.3s, color 0.3s;
 }
+
 .btn_more:hover{
     background-color: #5D1C43;
     text-decoration: none;
