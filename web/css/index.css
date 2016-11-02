@@ -19,14 +19,24 @@
 }
 
 
+.block_img:hover {
+    background-color: whitesmoke ;
+    cursor: pointer;
+
+}
+
 .block_img{
-    background:linear-gradient( 135deg, #999999 , #e9e9e9, #999999 );
+    background-color: #999999;
+    background-image: linear-gradient( 135deg, rgba(255,255,255,0) , rgb(232, 232, 232) , rgba(255,255,255,0) );
+    transition:background-color 0.5s;
 
     height: 300px;
     display: flex;
     align-items: center;
     justify-content: space-around;
 }
+
+
 .block_img > img{
     margin:20px 1px 20px 1px;
     box-shadow: 10px 10px 10px 1px #656565;
@@ -54,8 +64,13 @@
     float: right;
     border:1px solid black;
     color: black;
-    padding:4px
+    padding:4px;
+    -webkit-transition: background 0.1s, color 0.3s;
+    -moz-transition: background 0.1s, color 0.3s;
+    -o-transition: background 0.1s, color 0.3s;
+    transition: background 0.3s, color 0.3s;
 }
+
 .btn_more:hover{
     background-color: #5D1C43;
     text-decoration: none;

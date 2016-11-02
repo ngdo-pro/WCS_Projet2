@@ -57,6 +57,10 @@
     color: black;
     text-align: center;
     float: right;
+    -webkit-transition: background 0.1s, color 0.3s;
+    -moz-transition: background 0.1s, color 0.3s;
+    -o-transition: background 0.1s, color 0.3s;
+    transition: background 0.3s, color 0.3s;
 }
 
 .bookArray .btn_more:hover {
