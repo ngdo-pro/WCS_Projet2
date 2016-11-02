@@ -2,11 +2,12 @@
 
 namespace AppBundle\DataFixtures\ORM;
 
-use Doctrine\Common\DataFixtures\FixtureInterface;
+use Doctrine\Common\DataFixtures\AbstractFixture;
+use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use BookEditorBundle\Entity\Book;
 
-class LoadUserData implements FixtureInterface
+class LoadUserData extends AbstractFixture implements OrderedFixtureInterface
 {
     public function load(ObjectManager $manager)
     {
@@ -23,6 +24,7 @@ Le vin, une question de bon(s) sens !');
         $book1->setPurchaseOrderImageUrl(NULL);
         $book1->setSlug('le-petit-bacchus');
         $manager->persist($book1);
+        $this->addReference('le-petit-bacchus', $book1);
 
         $book2 = new Book();
         $book2->setTitle('L\'île sacrée');
@@ -36,6 +38,7 @@ Livre historique et passionnant à découvrir, c’est un magnifique cadeau à o
         $book2->setPurchaseOrderImageUrl(NULL);
         $book2->setSlug('l-ile-sacree');
         $manager->persist($book2);
+        $this->addReference('ile', $book2);
 
         $book3 = new Book();
         $book3->setTitle('Découvertes Gourmandes');
@@ -52,6 +55,7 @@ Une seule envie : dévorer ce livre !');
         $book3->setPurchaseOrderImageUrl(NULL);
         $book3->setSlug('decouvertes-gourmandes');
         $manager->persist($book3);
+        $this->addReference('decouvertes-gourmandes', $book3);
 
         $book4 = new Book();
         $book4->setTitle('L\'Afficheur tombe dans le panneau');
@@ -90,6 +94,7 @@ Une seule envie : dévorer ce livre !');
         $book5->setPurchaseOrderImageUrl(NULL);
         $book5->setSlug('les-pierres-dorees-emotions-et-images');
         $manager->persist($book5);
+        $this->addReference('les-pierres-dorees', $book5);
 
         $book6 = new Book();
         $book6->setTitle('Mousselines au fil du temps, une édition haute en couleurs');
@@ -105,6 +110,7 @@ Une seule envie : dévorer ce livre !');
         $book6->setPurchaseOrderImageUrl(NULL);
         $book6->setSlug('mousselines-au-fil-du-temps-une-edition-haute-en-couleurs');
         $manager->persist($book6);
+        $this->addReference('mousselines', $book6);
 
         $book7 = new Book();
         $book7->setTitle('Coeur de vigneron');
@@ -118,6 +124,7 @@ Une seule envie : dévorer ce livre !');
         $book7->setPurchaseOrderImageUrl(NULL);
         $book7->setSlug('coeur-de-vigneron');
         $manager->persist($book7);
+        $this->addReference('vigne', $book7);
 
         $book8 = new Book();
         $book8->setTitle('Voyages d\'un chien amoureux');
@@ -134,6 +141,7 @@ Une seule envie : dévorer ce livre !');
         $book8->setPurchaseOrderImageUrl(NULL);
         $book8->setSlug('voyages-d-un-chien-amoureux');
         $manager->persist($book8);
+        $this->addReference('chien', $book8);
 
         $book9 = new Book();
         $book9->setTitle('Un instant éclairé');
@@ -152,5 +160,10 @@ Une seule envie : dévorer ce livre !');
         $manager->persist($book9);
 
         $manager->flush();
+    }
+
+    public function getOrder()
+    {
+        return 1;
     }
 }
