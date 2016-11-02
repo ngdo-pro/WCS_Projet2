@@ -60,10 +60,6 @@ class BookAdmin extends AbstractAdmin
                 'label' => 'Bon de commande',
                 'required' => false
             ))
-            ->add('slug', 'text', array(
-                'label' => 'Slug',
-                'required' => true
-            ))
             ->add('tag', 'checkbox', array(
                 'label' => 'Epingler',
                 'required' => false
@@ -101,6 +97,7 @@ class BookAdmin extends AbstractAdmin
         foreach ($book->getPressArticles() as $pressArticle){
             $pressArticle->setBook($book);
         }
+        $book->setSlug($book->getTitle());
 
     }
 
