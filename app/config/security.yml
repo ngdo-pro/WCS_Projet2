@@ -1,0 +1,40 @@
+# To get started with security, check out the documentation:
+# http://symfony.com/doc/current/book/security.html
+security:
+
+    encoders:
+        Symfony\Component\Security\Core\User\User:
+            algorithm: bcrypt
+            cost: 12
+
+    role_hierarchy:
+        ROLE_ADMIN:       ROLE_USER
+        ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_SONATA_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+
+    providers:
+        in_memory:
+            memory:
+                users:
+                    admin:
+                        password: $2y$12$qBl7cypN0fwRSwKMT7F0iuCoDGx/QEnI1YJaRt7vT/15DsM5/yqgS
+                        roles: 'ROLE_SONATA_ADMIN'
+
+    firewalls:
+        dev:
+            pattern:  ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        main:
+            anonymous: true
+            form_login:
+                login_path: login
+                check_path: login
+                target_path_parameter: _target_path
+            logout:
+                path:   /admin/logout
+                target: /login
+
+
+    access_control:
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin, roles: ROLE_SONATA_ADMIN }

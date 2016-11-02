@@ -1,0 +1,235 @@
+#content {
+    padding-top: 229px;
+}
+
+/* header */
+
+.navbar-default {
+    background: #fff;
+    -webkit-box-shadow: 0px 3px 5px rgba(100, 100, 100, 0.49);
+    -moz-box-shadow:    0px 3px 5px rgba(100, 100, 100, 0.49);
+    box-shadow:         0px 3px 5px rgba(100, 100, 100, 0.49);
+    z-index: 1;
+}
+
+.navbar-brand {
+    height: auto;
+}
+
+.navbar-brand img {
+    height: 170px;
+    margin-left: 40px;
+    margin-bottom: 28px;
+    transition: 0.3s ease;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: #636467;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.navbar-default .navbar-nav > .active > a {
+    background-color: inherit;
+    border-bottom: 3px solid #5d1c43;
+    color: #5d1c43;
+}
+
+.navbar-default .navbar-nav > .active > a:hover {
+    background-color: inherit;
+    color: #5d1c43;
+}
+
+.navbar-default .navbar-nav > li > a:hover {
+    color: #5d1c43;
+}
+
+.navbar-default .navbar-nav > .active > a:focus {
+    background-color: inherit;
+}
+
+.navbar-default:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 229px;
+    width: 100%;
+    background: -webkit-gradient(linear, left top, right bottom, from(rgba(0, 0, 0, 0)), to(rgba(255, 255, 255, 1))), url(../img/ville.jpg) 0 -20px no-repeat;
+    opacity: .10;
+    z-index: -1;
+    transition: 0.3s ease;
+}
+
+.navbar-nav {
+    margin-top: auto !important;
+    margin-bottom: auto !important;
+    transition: 0.3s ease;
+}
+
+.navbar-toggle {
+    margin-top: 35px;
+    transition: 0.3s ease;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #5d1c43;
+    text-align: center;
+}
+
+.navbar-default .navbar-toggle:hover {
+    background-color: inherit;
+}
+
+.navbar-default .navbar-toggle:focus {
+    background-color: inherit;
+}
+
+@media only screen and (min-width: 768px) {
+    .navbar-nav {
+        padding-right: 30px !important;
+        padding-top: 100px;
+    }
+
+
+}
+
+.resizeImg {
+    height: 60px !important;
+    width: auto !important;
+    margin-left: 10px !important;
+    margin-bottom: 10px !important;
+    transition: 0.3s ease;
+}
+
+.navbar-default.resizeBackground:before {
+    height: 100px;
+}
+
+.resizeLink {
+    font-size: 16px !important;
+    min-height: 30px;
+    transition: 0.3s ease;
+}
+
+.resizeLinkBar {
+    padding-top: 20px;
+    transition: 0.3s ease;
+}
+
+/* Social Buttons */
+
+#social_btn {
+    position: fixed;
+    right: 0;
+    top: 30%;
+    padding: 0px 3px;
+    border: none;
+    width: 51px;
+    z-index: 1;
+    text-align: center;
+}
+
+#social_btn img {
+    height: 40px;
+    width: auto;
+    margin: 3px 0px;
+}
+
+#social_btn a:hover img {
+    height: 46px;
+    width: auto;
+    margin: 0;
+}
+
+#social_btn a:focus {
+    outline: none;
+}
+
+#social_btn_xs #link{
+    display: inline-block;
+    background-color: #5d1c43;
+}
+
+#social_btn_xs {
+    position: fixed;
+    right: -290px;
+    bottom: 17%;
+    margin: 0;
+    z-index: 1;
+}
+
+#social_btn_xs img {
+    height: 36px;
+    width: auto;
+    margin: 4px;
+}
+
+#social_btn_xs #fb img {
+    margin-left: 0;
+    padding-left: 0;
+}
+
+#social_btn_xs #bande {
+    cursor: pointer;
+    height: 44px;
+    width: auto;
+    margin: 0;
+}
+
+.social_active{
+    right: 0px!important;
+}
+
+@media only screen and (max-width: 767px) {
+    .navbar-brand img {
+        height: 60px;
+        width: auto;
+        margin-left: 10px;
+        margin-bottom: 10px;
+    }
+
+    .navbar-default:before {
+        height: 100px;
+        background-size: cover;
+        background-position-y: 0;
+    }
+
+    .navbar-default .navbar-nav > li > a {
+        font-size: 12px !important;
+    }
+
+    .navbar-default .navbar-nav {
+        padding-top: 10px;
+    }
+    
+
+    #content {
+        padding-top: 100px;
+    }
+}
+
+/* footer */
+
+footer {
+    -webkit-box-shadow: 0 -1px 5px #ededed;
+    -moz-box-shadow: 0 -1px 5px #ededed;
+    box-shadow: 0 -1px 5px #ededed;
+    background-color: #fff;
+    padding: 20px 0;
+}
+
+.footerDiv {
+    text-align: center;
+}
+
+footer a {
+    color: #636467;
+}
+
+footer a:hover {
+    color: #5d1c43;
+    text-decoration: none;
+}
+

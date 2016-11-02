@@ -1,0 +1,24 @@
+.event{
+    padding: 20px;
+}
+
+.title-event{
+    color: #da0909;
+    font-weight: bold;
+    text-align: right;
+    text-transform: uppercase;
+}
+
+.content-event{
+    border-left: 4px solid #da0909;
+}
+
+.content-event > ul{
+    list-style: none;
+    font-style: italic;
+    padding-left: 0;
+}
+
+.content-event .event-title{
+    font-weight: bold;
+}

@@ -1,0 +1,69 @@
+body {
+    margin: 0 20px;
+}
+
+h1 {
+    text-align: center;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+#formap h3 {
+    text-align: center;
+}
+
+#map iframe {
+    width: 100%;
+    height: 400px;
+    background-color: grey;
+    margin-bottom: 20px;
+}
+
+.btn-primary {
+    padding: 6px 10px;
+    border: solid 1px;
+    background-color: #fff;
+    border-color: grey;
+    color: #000;
+    border-radius: inherit;
+}
+
+.btn-primary:hover {
+    background-color: #5d1c43;
+    border-color: #fff;
+}
+
+.form-control {
+    border-radius: inherit;
+}
+
+.form-control:focus {
+    border-color: lightgray;
+    box-shadow: 0 0 5px #5d1c43;
+}
+
+#submit_btn {
+    display: flex;
+    justify-content: center;
+    height: 103px;
+}
+
+#submit_btn div:first-child{
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+@media(max-width:500px){
+#rc-imageselect,.g-recaptcha {
+    transform:scale(0.83);
+    transform-origin:0 0;
+    -webkit-transform:scale(0.83);
+    transform:scale(0.83);
+    -webkit-transform-origin:0 0;
+    transform-origin:0 0;
+}
+}
+
+footer {
+    margin-top: 30px;
+}

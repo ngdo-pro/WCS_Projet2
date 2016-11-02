@@ -1,0 +1,53 @@
+BookEditorBundle\Entity\Book:
+    type: entity
+    table: null
+    repositoryClass: BookEditorBundle\Repository\BookRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        title:
+            type: string
+            length: 255
+            unique: true
+        author:
+            type: string
+            length: 255
+        description:
+            type: text
+        facebookLinkUrl:
+            type: string
+            length: 255
+            nullable: true
+        imageUrl:
+            type: string
+            length: 255
+            nullable: true
+        releaseDate:
+            type: date
+        purchaseOrderImageUrl:
+            type: string
+            length: 255
+            nullable: true
+        tag:
+            type: boolean
+            options:
+                default: 0
+        slug:
+            type: string
+            length: 255
+            unique: true
+        uploaded:
+            type: datetime
+            nullable: true
+    oneToMany:
+        pressArticles:
+            targetEntity: PressArticle
+            mappedBy: book
+            cascade: [ persist ]
+    lifecycleCallbacks:
+        prePersist:   [ lifecycleFileUpload ]
+        preUpdate:    [ lifecycleFileUpload ]
