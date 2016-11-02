@@ -26,6 +26,7 @@ A Symfony project created by wild code school's student, october 10, 2016, 4:57 
 + git clone 
 + composer update
 + composer install
++ php app/console doctrine:schema:update
 + php app/console doctrine:fixtures:load
 
 
