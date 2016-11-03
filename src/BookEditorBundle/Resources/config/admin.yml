@@ -2,7 +2,7 @@ services:
     app.admin.book:
         class: BookEditorBundle\Admin\BookAdmin
         tags:
-            - { name: sonata.admin, manager_type: orm, group: "RDM", label: "Livre" }
+            - { name: sonata.admin, manager_type: orm, group: "Contenu", label: "Livre" }
         arguments:
             - ~
             - BookEditorBundle\Entity\Book
@@ -10,7 +10,7 @@ services:
     app.admin.event:
         class: BookEditorBundle\Admin\EventAdmin
         tags:
-            - { name: sonata.admin, manager_type: orm, group: "RDM", label: "Évènement" }
+            - { name: sonata.admin, manager_type: orm, group: "Contenu", label: "Évènement" }
         arguments:
             - ~
             - BookEditorBundle\Entity\Event
@@ -20,4 +20,4 @@ services:
         class: BookEditorBundle\Admin\PressArticleAdmin
         arguments: [~, BookEditorBundle\Entity\PressArticle, SonataAdminBundle:CRUD]
         tags:
-            - { name: sonata.admin, manager_type: orm, group: admin, label: PressArticle }
+            - { name: sonata.admin, manager_type: orm, group: "Contenu", label: Article de presse }

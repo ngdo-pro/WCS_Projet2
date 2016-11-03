@@ -42,7 +42,7 @@ class BookAdmin extends AbstractAdmin
                 'label' => 'Lien vers la page Facebook',
                 'required' => false
             ))
-            ->add('coverImg', 'file', $fileFieldOptions)
+            ->add('coverImg', 'file', array('label' => 'Couverture du livre'),$fileFieldOptions)
             ->add('releaseDate', 'date',array(
                 'years' => range(2000, 2020),
                 'format' => 'ddMMyyyy',
@@ -50,7 +50,7 @@ class BookAdmin extends AbstractAdmin
                 'required' => true
             ))
             ->add('pressArticles', 'sonata_type_collection', array(
-                'by_reference' => false
+                'by_reference' => false,'label' => 'Article de presse'
             ), array(
                 'edit' => 'inline',
                 'inline' => 'table',
