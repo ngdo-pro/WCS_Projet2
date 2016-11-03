@@ -3,6 +3,52 @@
     {{ parent() }}
     <link rel="stylesheet" href="{{ asset ("css/edit_admin.css")}}">
 {% endblock %}
+ {% block sonata_breadcrumb %}
+     <div class="hidden-xs">
+         {% if _breadcrumb is not empty or action is defined %}
+             <ol class="nav navbar-top-links breadcrumb">
+                 {% if _breadcrumb is empty %}
+                     {% if action is defined %}
+                         {% for menu in breadcrumbs_builder.breadcrumbs(admin, action) %}
+                             {%- set translation_domain = menu.extra('translation_domain', 'messages') -%}
+                             {%- set label = menu.label -%}
+                             {%- if translation_domain is not same as(false) -%}
+                                 {%- set label = label|trans(menu.extra('translation_params', {}), translation_domain) -%}
+                             {%- endif -%}
+
+                             {% if not loop.last  %}
+                                 <li>
+                                     {% if menu.uri is not empty %}
+                                         <a href="{{ menu.uri }}">
+                                             {% if menu.extra('safe_label', true) %}
+                                                 {{- label|raw -}}
+                                             {% else %}
+                                                 {{- label -}}
+                                             {% endif %}
+                                         </a>
+                                     {% else %}
+                                         {{ label }}
+                                     {% endif %}
+                                 </li>
+                             {% else %}
+                                 <li class="active"><span>{{ object.title }}</span></li>
+                             {% endif %}
+                         {% endfor %}
+                     {% endif %}
+                 {% else %}
+                     {{ _breadcrumb|raw }}
+                 {% endif %}
+             </ol>
+         {% endif %}
+     </div>
+ {% endblock sonata_breadcrumb %}
+ {% block tab_menu_navbar_header %}
+     {% if _navbar_title is not empty %}
+         <div class="navbar-header ">
+             <a class="navbar-brand nav-title" href="#">Editer : {{ object.title }}</a>
+         </div>
+     {% endif %}
+ {% endblock %}
 {% block side_bar_after_nav_content %}
 
 {% endblock %}
