@@ -3,6 +3,7 @@
 namespace BookEditorBundle\Admin;
 
 use BookEditorBundle\Entity\PressArticle;
+use Doctrine\ORM\Mapping\Entity;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
@@ -53,6 +54,15 @@ class PressArticleAdmin extends AbstractAdmin
                 'label' => 'Photo de l\'article',
                 'required' => false
             ))
+            ->add('book', 'sonata_type_model_list', array(
+                    'label'         => 'Livre',
+                    'btn_add'       => false,
+                    'btn_list'      => 'Liste des livres',
+                    'btn_delete'    => false,
+                    'btn_catalogue' => 'SonataAdminBundle'
+                ), array(
+                    'placeholder' => 'Aucun livre selectionné'
+                ))
         ;
     }
 

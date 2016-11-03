@@ -63,8 +63,8 @@
             <div class="pressCard">
                 <h3 class="text-center">{{ pressArticle.title }}</h3>
                 <div class="pressImage">
-                    <img src="{{ asset(pressArticle_directory ~ pressArticle.imageUrl) }}" alt="{{ pressArticle.imageUrl }}" data-toggle="modal" data-target="#pressModal">
-                    <div class="modal fade" id="pressModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <img src="{{ asset(pressArticle_directory ~ pressArticle.imageUrl) }}" alt="{{ pressArticle.imageUrl }}" data-toggle="modal" data-target="#{{ pressArticle.id }}">
+                    <div class="modal fade" id="{{ pressArticle.id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
