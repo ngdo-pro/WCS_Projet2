@@ -25,7 +25,7 @@ class LoadPressArticleData extends AbstractFixture implements OrderedFixtureInte
     public function load(ObjectManager $manager)
     {
         $pressArticle1 = new PressArticle();
-        $pressArticle1->setTitle("Le Progres 21/07/15.jpg");
+        $pressArticle1->setTitle("Le Progres 21/07/15");
         $pressArticle1->setImageUrl("article_christelle_beauvent_mousselines_leprogres_210715.jpg");
         $pressArticle1->setBook($this->getReference("mousselines"));
         $manager->persist($pressArticle1);

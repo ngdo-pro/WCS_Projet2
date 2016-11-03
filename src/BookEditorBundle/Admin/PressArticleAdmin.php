@@ -32,7 +32,7 @@ class PressArticleAdmin extends AbstractAdmin
     {
         $listMapper
             ->add('title')
-            ->add('imageUrl')
+            ->add('imageUrl', null, array ( 'label' => 'Image de l\'article', 'template' => "/pressArticle/list.html.twig"))
             ->add('_action', null, array(
                 'actions' => array(
                     'show' => array(),
