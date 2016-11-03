@@ -46,8 +46,14 @@
                 <div class="form-group">
                     {{ form_row(form.fMessage, {label:'Votre Message :', 'attr':{'class' : 'form-control required'}}) }}
                 </div>
-                <div class="form-group">
-                    {{ form_row(form.submit, {label:'Envoyer', 'attr':{'class' : 'btn-primary'}}) }}
+                <div class="row">
+
+                    <div class="col-xs-12 col-sm-6">
+                        {{ form_row(form.recaptcha, {label:' '}) }}
+                    </div>
+                    <div id="submit_btn" class="col-xs-12 col-sm-6">
+                        {{ form_row(form.submit, {'attr':{'class' : 'btn-primary'}}) }}
+                    </div>
                 </div>
                 {{ form_end(form) }}
 

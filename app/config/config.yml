@@ -86,6 +86,8 @@ sonata_admin:
     title:      RDM-Éditions
     templates:
         user_block: '%kernel.root_dir%/Resources/views/book/custom_user_menu.html.twig'
+        layout:     standard_menu_admin.html.twig
+
 
 ivory_ck_editor:
     default_config: my_config
@@ -93,3 +95,9 @@ ivory_ck_editor:
         my_config:
             toolbar: standard
             language: fr
+
+ewz_recaptcha:
+    public_key:  6LfsgwoUAAAAANDWpHKY_GtsjsXG7XbDs4eamLSb
+    private_key: 6LfsgwoUAAAAAC3U0zxz8fwq0eBL6vQUG7WXq0Cd
+    # Not needed as "%kernel.default_locale%" is the default value for the locale key
+    locale_key:  %kernel.default_locale%

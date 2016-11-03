@@ -2,6 +2,7 @@
 
 namespace BookEditorBundle\Entity;
 
+use Cocur\Slugify\Slugify;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Filesystem\Filesystem;
@@ -73,6 +74,8 @@ class Book
      */
     public function __construct()
     {
+        $slug = new Slugify();
+        $this->slug = $slug->slugify($this->getTitle());
         $this->pressArticles = new \Doctrine\Common\Collections\ArrayCollection();
     }
     /**
@@ -267,9 +270,10 @@ class Book
      *
      * @return Book
      */
-    public function setSlug($slug)
+    public function setSlug($title)
     {
-        $this->slug = $slug;
+        $slug = new Slugify();
+        $this->slug = $slug->slugify($title);
 
         return $this;
     }

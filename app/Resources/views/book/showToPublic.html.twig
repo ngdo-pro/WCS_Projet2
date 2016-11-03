@@ -34,20 +34,20 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-xs-12 col-md-4">
             <table class="info-container">
                 <tr>
                     <th><span class="tag">Auteur</span></th>
                     <td>{{ book.author }}</td>
                 </tr>
                 <tr>
-                    <th><span class="tag">Date de parution</span></th>
-                    <td>{{ book.releaseDate|date("d/m/Y", "Europe/Paris") }}</td>
+                    <th><span class="tag">Parution</span></th>
+                    <td>{{ book.releaseDate|date("Y", "Europe/Paris") }}</td>
                 </tr>
-            </table>
+            </table><br />
         </div>
-        <div class="col-md-8 button-facebook">
-            <a href="{{ book.facebookLinkUrl }}" target="_blank">Facebook</a>
+        <div class="col-md-offset-4 col-md-4 button-facebook">
+            <a href="{{ book.facebookLinkUrl }}" target="_blank">Page Facebook</a>
         </div>
     </div>
 </section>
@@ -63,8 +63,8 @@
             <div class="pressCard">
                 <h3 class="text-center">{{ pressArticle.title }}</h3>
                 <div class="pressImage">
-                    <img src="{{ asset(pressArticle_directory ~ pressArticle.imageUrl) }}" alt="{{ pressArticle.imageUrl }}" data-toggle="modal" data-target="#pressModal">
-                    <div class="modal fade" id="pressModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <img src="{{ asset(pressArticle_directory ~ pressArticle.imageUrl) }}" alt="{{ pressArticle.imageUrl }}" data-toggle="modal" data-target="#{{ pressArticle.id }}">
+                    <div class="modal fade" id="{{ pressArticle.id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
