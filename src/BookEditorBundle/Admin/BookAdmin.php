@@ -77,7 +77,7 @@ class BookAdmin extends AbstractAdmin
             ->addIdentifier( 'title' , null, array ( 'label' => 'Titre') )
             ->add('author' , null, array ( 'label' => 'Autheur') )
             ->add('description' , null, array ( 'label' => 'Description') )
-            ->add('imageUrl' , null, array ( 'label' => 'Image de couverture') )
+            ->add('imageUrl' , null, array ( 'label' => 'Image de couverture', 'template' => "/book/list.html.twig") )
             ->add('releaseDate' , null, array ( 'label' => 'Date de publication') )
             ->add('tag' , null, array ( 'label' => 'Epingle') )
         ;

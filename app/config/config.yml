@@ -89,7 +89,6 @@ sonata_admin:
         layout:     standard_menu_admin.html.twig
 
 
-
 ivory_ck_editor:
     default_config: my_config
     configs:
