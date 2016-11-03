@@ -74,9 +74,9 @@
         {% for book in books %}
             <div class="block_global  col-md-4 col-sm-6 col-xs-12">
                 <div class="block_books vertical_center_block">
-                    <div class="block_img text-center col-md-12 col-sm-12 col-xs-4">
+                    <a class="block_img text-center col-md-12 col-sm-12 col-xs-4"  href="{{ path('book_showToPublic', {'slug': book.slug}) }}">
                         <img class="img_book" src="{{ asset(covers_directory ~ book.imageUrl) }}" alt="{{ book.title }}"/>
-                    </div>
+                    </a>
                     <div class="block_text col-xs-8 col-md-12 col-sm-12">
                         <h2>{{ book.title }}</h2>
                         <h3>{{ book.author }}</h3>
