@@ -32,7 +32,7 @@ class PressArticleAdmin extends AbstractAdmin
     {
         $listMapper
             ->add('title')
-            ->add('imageUrl')
+            ->add('imageUrl', null, array ( 'label' => 'Image de l\'article', 'template' => "/pressArticle/list.html.twig"))
             ->add('_action', null, array(
                 'actions' => array(
                     'show' => array(),
@@ -58,9 +58,9 @@ class PressArticleAdmin extends AbstractAdmin
             ))
             ->add('book', EntityType::class, array(
                     'class'         => 'BookEditorBundle:Book',
-                    'choice_label'         => 'title',
+                    'choice_label'  => 'title',
                     'expanded'      => false,
-                    'multiple'      => true,
+                    'multiple'      => false,
                     'by_reference'  => true,
                     'label'         => 'Livre'
                 ), array(
