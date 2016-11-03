@@ -49,13 +49,6 @@ class BookAdmin extends AbstractAdmin
                 'label' => 'Date de publication',
                 'required' => true
             ))
-            ->add('pressArticles', 'sonata_type_collection', array(
-                'by_reference' => false,'label' => 'Article de presse'
-            ), array(
-                'edit' => 'inline',
-                'inline' => 'table',
-                'sortable' => 'id',
-            ))
             ->add('purchaseOrderImg', 'file', array(
                 'label' => 'Bon de commande',
                 'required' => false
@@ -74,7 +67,6 @@ class BookAdmin extends AbstractAdmin
             ->add('title')
             ->add('author')
             ->add('releaseDate')
-
         ;
     }
 
@@ -94,9 +86,6 @@ class BookAdmin extends AbstractAdmin
     public function prePersist($book)
     {
         $this->manageFileUpload($book);
-        foreach ($book->getPressArticles() as $pressArticle){
-            $pressArticle->setBook($book);
-        }
         $book->setSlug($book->getTitle());
 
     }
@@ -104,9 +93,6 @@ class BookAdmin extends AbstractAdmin
     public function preUpdate($book)
     {
         $this->manageFileUpload($book);
-        foreach ($book->getPressArticles() as $pressArticle){
-            $pressArticle->setBook($book);
-        }
     }
 
     private function manageFileUpload(Book $book)
