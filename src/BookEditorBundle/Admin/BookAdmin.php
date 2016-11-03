@@ -76,7 +76,7 @@ class BookAdmin extends AbstractAdmin
         $listMapper
             ->addIdentifier( 'title' , null, array ( 'label' => 'Titre') )
             ->add('author' , null, array ( 'label' => 'Autheur') )
-            ->add('description' , null, array ( 'label' => 'Description') )
+            ->add('description' , null, array ( 'label' => 'Description', 'template' => "/book/description.html.twig") )
             ->add('imageUrl' , null, array ( 'label' => 'Image de couverture', 'template' => "/book/list.html.twig") )
             ->add('releaseDate' , null, array ( 'label' => 'Date de publication', 'format' => 'Y') )
             ->add('tag' , null, array ( 'label' => 'Epingle') )
