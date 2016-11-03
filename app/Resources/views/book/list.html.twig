@@ -1,0 +1,9 @@
+{% extends 'SonataAdminBundle:CRUD:base_list_field.html.twig' %}
+
+{% block field %}
+
+    {% if object.ImageUrl() %}
+        <img src="{{ asset (covers_directory ~ object.imageUrl) }}" class="img_center" />
+    {% endif %}
+
+{% endblock %}
