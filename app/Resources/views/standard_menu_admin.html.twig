@@ -31,7 +31,13 @@
                                       {% endif %}
                                   </li>
                               {% else %}
-                                  <li class="active"><span>{{ database.title }}</span></li>
+                                  <li class="active"><span>
+                                          {% if object.title is defined %}
+                                              {{ object.title }}
+                                          {% else %}
+                                              {{ label }}
+                                          {% endif %}
+                                      </span></li>
                               {% endif %}
                           {% endfor %}
                       {% endif %}
