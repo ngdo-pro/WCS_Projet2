@@ -58,9 +58,9 @@ class PressArticleAdmin extends AbstractAdmin
             ))
             ->add('book', EntityType::class, array(
                     'class'         => 'BookEditorBundle:Book',
-                    'choice_label'         => 'title',
+                    'choice_label'  => 'title',
                     'expanded'      => false,
-                    'multiple'      => true,
+                    'multiple'      => false,
                     'by_reference'  => true,
                     'label'         => 'Livre'
                 ), array(

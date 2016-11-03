@@ -45,7 +45,7 @@ class BookAdmin extends AbstractAdmin
             ->add('coverImg', 'file', array('label' => 'Couverture du livre'),$fileFieldOptions)
             ->add('releaseDate', 'date',array(
                 'years' => range(2000, 2020),
-                'format' => 'ddMMyyyy',
+                'format' => 'y',
                 'label' => 'Date de publication',
                 'required' => true
             ))
@@ -78,7 +78,7 @@ class BookAdmin extends AbstractAdmin
             ->add('author' , null, array ( 'label' => 'Autheur') )
             ->add('description' , null, array ( 'label' => 'Description') )
             ->add('imageUrl' , null, array ( 'label' => 'Image de couverture') )
-            ->add('releaseDate' , null, array ( 'label' => 'Date de publication') )
+            ->add('releaseDate' , null, array ( 'label' => 'Date de publication', 'format' => 'Y') )
             ->add('tag' , null, array ( 'label' => 'Epingle') )
         ;
     }
