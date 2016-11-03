@@ -87,8 +87,6 @@ sonata_admin:
     templates:
         user_block: '%kernel.root_dir%/Resources/views/book/custom_user_menu.html.twig'
         layout:     standard_menu_admin.html.twig
-        list:       imageStyle.html.twig
-
 
 
 ivory_ck_editor:
