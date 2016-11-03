@@ -2,12 +2,15 @@
 
 namespace BookEditorBundle\Admin;
 
+use BookEditorBundle\Entity\Book;
 use BookEditorBundle\Entity\PressArticle;
+use Doctrine\ORM\Mapping\Entity;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 class PressArticleAdmin extends AbstractAdmin
 {
@@ -53,6 +56,16 @@ class PressArticleAdmin extends AbstractAdmin
                 'label' => 'Photo de l\'article',
                 'required' => false
             ))
+            ->add('book', EntityType::class, array(
+                    'class'         => 'BookEditorBundle:Book',
+                    'choice_label'         => 'title',
+                    'expanded'      => false,
+                    'multiple'      => true,
+                    'by_reference'  => true,
+                    'label'         => 'Livre'
+                ), array(
+                    'placeholder' => 'Aucun livre selectionné'
+                ))
         ;
     }
 

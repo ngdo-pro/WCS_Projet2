@@ -22,7 +22,7 @@ BookEditorBundle\Entity\PressArticle:
     manyToOne:
         book:
             targetEntity: Book
-            inversedBy: press_articles
+            inversedBy: pressArticles
             joinColumn:
                 name: book_id
                 referencedColumnName: id
