@@ -42,19 +42,12 @@ class BookAdmin extends AbstractAdmin
                 'label' => 'Lien vers la page Facebook',
                 'required' => false
             ))
-            ->add('coverImg', 'file', $fileFieldOptions)
+            ->add('coverImg', 'file', array('label' => 'Couverture du livre'),$fileFieldOptions)
             ->add('releaseDate', 'date',array(
                 'years' => range(2000, 2020),
                 'format' => 'ddMMyyyy',
                 'label' => 'Date de publication',
                 'required' => true
-            ))
-            ->add('pressArticles', 'sonata_type_collection', array(
-                'by_reference' => false
-            ), array(
-                'edit' => 'inline',
-                'inline' => 'table',
-                'sortable' => 'id',
             ))
             ->add('purchaseOrderImg', 'file', array(
                 'label' => 'Bon de commande',
@@ -74,7 +67,6 @@ class BookAdmin extends AbstractAdmin
             ->add('title')
             ->add('author')
             ->add('releaseDate')
-
         ;
     }
 
@@ -84,9 +76,9 @@ class BookAdmin extends AbstractAdmin
         $listMapper
             ->addIdentifier( 'title' , null, array ( 'label' => 'Titre') )
             ->add('author' , null, array ( 'label' => 'Autheur') )
-            ->add('description' , null, array ( 'label' => 'Description') )
-            ->add('imageUrl' , null, array ( 'label' => 'Image de couverture') )
-            ->add('releaseDate' , null, array ( 'label' => 'Date de publication') )
+            ->add('description' , null, array ( 'label' => 'Description', 'template' => "/book/description.html.twig") )
+            ->add('imageUrl' , null, array ( 'label' => 'Image de couverture', 'template' => "/book/list.html.twig") )
+            ->add('releaseDate' , null, array ( 'label' => 'Date de publication', 'format' => 'Y') )
             ->add('tag' , null, array ( 'label' => 'Epingle') )
         ;
     }
@@ -94,9 +86,6 @@ class BookAdmin extends AbstractAdmin
     public function prePersist($book)
     {
         $this->manageFileUpload($book);
-        foreach ($book->getPressArticles() as $pressArticle){
-            $pressArticle->setBook($book);
-        }
         $book->setSlug($book->getTitle());
 
     }
@@ -104,9 +93,6 @@ class BookAdmin extends AbstractAdmin
     public function preUpdate($book)
     {
         $this->manageFileUpload($book);
-        foreach ($book->getPressArticles() as $pressArticle){
-            $pressArticle->setBook($book);
-        }
     }
 
     private function manageFileUpload(Book $book)
