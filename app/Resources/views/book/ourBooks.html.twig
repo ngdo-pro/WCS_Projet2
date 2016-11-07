@@ -8,9 +8,9 @@
             {% for book in books %}
                 <tr class="row">
                     <td>
-                        <div class="tableImg">
+                        <a class="tableImg" href="{{ path('book_showToPublic', {'slug': book.slug}) }}">
                             <img src="{{ asset(covers_directory ~ book.imageUrl) }}" alt="book_picture">
-                        </div>
+                        </a>
                     </td>
                     <td>
                         <div class="celDescri">
