@@ -60,7 +60,7 @@ class BookController extends Controller
     public function ourBooksAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $books = $em->getRepository('BookEditorBundle:Book')->displayBook();
+        $books = $em->getRepository('BookEditorBundle:Book')->findAllOrderByDate();
 
         return $this->render('book/ourBooks.html.twig', array(
             'books' => $books,
