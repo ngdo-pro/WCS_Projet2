@@ -31,4 +31,12 @@ class BookRepository extends EntityRepository
 
         return $tagBook->getResult();
     }
+    public function findAllOrderByDate(){
+        $orderBook = $this->createQueryBuilder('c')
+            ->orderBy('c.releaseDate','DESC')
+            ->getQuery();
+
+        return $orderBook->getResult();
+    }
+
 }
