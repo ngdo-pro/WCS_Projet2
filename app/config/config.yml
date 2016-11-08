@@ -93,8 +93,17 @@ ivory_ck_editor:
     default_config: my_config
     configs:
         my_config:
-            toolbar: standard
-            language: fr
+            toolbar: "my_toolbar"
+            uiColor: "#000000"
+            # ...
+    toolbars:
+            configs:
+                my_toolbar: [ "@document", "@line", "@tool", "@link"]
+            items:
+                document: [ "Bold", "Italic", "Underline", "TextColor", "NumberedList", "BulletedList" ]
+                line: [ "JustifyLeft", "JustifyCenter", "JustifyRight", "JustifyBlock", "Outdent", "Indent" ]
+                tool: [ "Undo", "Redo" ]
+                link: [ "Link" ]
 
 ewz_recaptcha:
     public_key:  6LfsgwoUAAAAANDWpHKY_GtsjsXG7XbDs4eamLSb
