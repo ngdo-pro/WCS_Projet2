@@ -42,7 +42,7 @@ class BookAdmin extends AbstractAdmin
                 'label' => 'Lien vers la page Facebook',
                 'required' => false
             ))
-            ->add('coverImg', 'file', array('label' => 'Couverture du livre'),$fileFieldOptions)
+            ->add('coverImg', 'file', array('label' => 'Couverture du livre', 'required' => false ),$fileFieldOptions)
             ->add('releaseDate', 'date',array(
                 'years' => range(2000, 2020),
                 'format' => 'ddMMyyyy',
