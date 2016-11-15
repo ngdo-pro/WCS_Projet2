@@ -8,9 +8,9 @@
             {% for book in books %}
                 <tr class="row">
                     <td>
-                        <div class="tableImg">
+                        <a class="tableImg" href="{{ path('book_showToPublic', {'slug': book.slug}) }}">
                             <img src="{{ asset(covers_directory ~ book.imageUrl) }}" alt="book_picture">
-                        </div>
+                        </a>
                     </td>
                     <td>
                         <div class="celDescri">
@@ -18,9 +18,7 @@
                                 <div class="col-xs-12 col-sm-8 bookTitle">
                                     <h2>{{ book.title }}</h2>
                                 </div>
-                                <div class="col-xs-6 col-xs-offset-6 relDate">
-                                    <p>{{ book.releaseDate|date('d/m/Y', 'Europe/Paris') }}</p>
-                                </div>
+
 
                             </div>
                             <div class="tableDescri">

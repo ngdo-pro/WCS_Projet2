@@ -42,13 +42,15 @@
                 </tr>
                 <tr>
                     <th><span class="tag">Parution</span></th>
-                    <td>{{ book.releaseDate|date("Y", "Europe/Paris") }}</td>
+                    <td>{{ book.releaseDate|date("d/m/Y", "Europe/Paris") }}</td>
                 </tr>
             </table><br />
         </div>
-        <div class="col-md-offset-4 col-md-4 button-facebook">
-            <a href="{{ book.facebookLinkUrl }}" target="_blank">Page Facebook</a>
-        </div>
+        {% if book.facebookLinkUrl %}
+            <div class="col-md-offset-4 col-md-4 button-facebook">
+                <a href="{{ book.facebookLinkUrl }}" target="_blank">Page Facebook</a>
+            </div>
+        {% endif %}
     </div>
 </section>
 {% if pressArticles %}
