@@ -1,0 +1,45 @@
+version: '3'
+services:
+  portainer:
+    image: portainer/portainer-ce:alpine
+    restart: on-failure
+    ports:
+      - "9000:9000"
+    command: --admin-password "$$2y$$05$$oSwaRO7NokCdy9wRcJpQYOBv0cr/gExSMKUbc/QhmmfHUhZlJ/KVq"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+      - dataportainer:/data
+  mysql:
+    image: mysql:5.7.13
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: rdm
+    ports:
+      - '3306:3306'
+  php:
+    build:
+      context: .
+      dockerfile: './docker/php/Dockerfile'
+    volumes:
+      - './:/app'
+    user: 1000:1000
+    depends_on:
+      - mysql
+  web:
+    image: nginx:latest
+    ports:
+      - '80:80'
+    volumes:
+      - './:/app'
+      - './docker/nginx/default.conf:/etc/nginx/conf.d/default.conf'
+    depends_on:
+      - php
+networks:
+  back:
+    driver: bridge
+
+volumes:
+  dataportainer:

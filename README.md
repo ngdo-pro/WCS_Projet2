@@ -1,4 +1,4 @@
-rdm-editions
+# rdm-editions
 ============
 
 A Symfony project created by wild code school's student, october 10, 2016, 4:57 pm.
@@ -7,8 +7,15 @@ A Symfony project created by wild code school's student, october 10, 2016, 4:57 
 + Mysql 5.7.13 
 + API: google map embed
 
+## How to play with it:
 
-##### Bundle :
+### Requirements:
+You need to have [docker](https://docs.docker.com/get-docker/) and [docker-compose](https://docs.docker.com/compose/install/) installed.
+### Run it with:
+- `docker-compose up`
+- Site should be available on [http://localhost](http://localhost)
+
+##### Bundles :
 
 + Sonata project / Sonata admin 3.9
 + excelwebzone / recaptcha 1.4
